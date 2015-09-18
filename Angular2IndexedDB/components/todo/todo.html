@@ -1,0 +1,42 @@
+<!--todos component-->
+
+<div class="row">
+    <div class="col-md-6">
+
+        <h2>to do list</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>description</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ng-for="#todo of todos()">
+                    <td>{{ todo.todoId }}</td>
+                    <td>{{ todo.description }}</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="deleteTodo(todo)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-default btn-block" (click)="clearTodos()">clear</button>
+        <hr />
+
+    </div>
+
+    <div class="col-md-6">
+
+        <form>
+            <div class="form-group">
+                <label for="inputDescription">description:</label>
+                <input #description type="text" class="form-control" id="inputDescription" placeholder="description">
+            </div>
+            <button type="button" class="btn btn-default btn-block" (click)="addTodo(description.value)">add to do</button>
+        </form>
+        <br>
+
+    </div>
+</div>

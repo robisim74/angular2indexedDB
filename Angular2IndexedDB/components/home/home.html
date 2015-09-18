@@ -1,0 +1,19 @@
+﻿<!--home component-->
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>to do sample</h1>
+        <br />
+        <p>
+            <!--in this sample, on click event, change detection propagates entities in the todo view-->  
+            <a class="btn btn-success" (click)="show = true">show to do list</a>
+        </p>
+    </div>
+</div>
+
+<div class="container" *ng-if="show == true">
+
+    <todo></todo>
+    <!--todo component-->
+
+</div>

@@ -1,0 +1,41 @@
+{
+  "name": "IndexedDBShim",
+  "authors": [
+    "Parashuram <code@nparashuram.com>"
+  ],
+  "description": "A polyfill for IndexedDB using WebSql",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/axemclion/IndexedDBShim.git"
+  },
+  "main": "dist/indexeddbshim.js",
+  "keywords": [
+    "indexedDB",
+    "database",
+    "polyfill",
+    "websql"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    "/src",
+    "/test",
+    "/tests",
+    "/examples",
+    "/.*",
+    "/index.html",
+    "/Gruntfile.js",
+    "/travis.sh"
+  ],
+  "homepage": "https://github.com/axemclion/IndexedDBShim",
+  "version": "2.2.1",
+  "_release": "2.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.2.1",
+    "commit": "c7e202f5cc2056e4fc8583361a119354ec748670"
+  },
+  "_source": "git://github.com/axemclion/IndexedDBShim.git",
+  "_target": "~2.2.1",
+  "_originalSource": "IndexedDBShim",
+  "_direct": true
+}
