@@ -20,7 +20,7 @@ export class Todo {
 
 @Injectable() export class IndexedDBEntities {
 	
-	// OBJECT STORES CLASSES such as Array<object store>
+	// OBJECT STORES ENTITIES as arrays
 	// EXAMPLE TODO
 	todos: Array<Todo> = []; // todos entity
 	// add new entity here
