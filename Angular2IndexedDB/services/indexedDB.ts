@@ -8,7 +8,7 @@
 // db operations
 
 // dependencies:
-// - angular: v2.0.0-alpha.37
+// - angular: v2.0.0-alpha.38
 
 /// <reference path="../typings/angular2/angular2.d.ts" />
 

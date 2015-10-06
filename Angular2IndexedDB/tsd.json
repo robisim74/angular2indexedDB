@@ -5,9 +5,6 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
-    "es6-promise/es6-promise.d.ts": {
-      "commit": "4356af494c045299110677b21e62000957e7a72e"
-    },
     "rx/rx.d.ts": {
       "commit": "4356af494c045299110677b21e62000957e7a72e"
     },
@@ -16,6 +13,9 @@
     },
     "rx/rx-lite.d.ts": {
       "commit": "4356af494c045299110677b21e62000957e7a72e"
+    },
+    "es6-shim/es6-shim.d.ts": {
+      "commit": "05557455c49043ff0189182e27c9e04403a70802"
     }
   }
 }
