@@ -8,9 +8,7 @@
 // db operations
 
 // dependencies:
-// - angular: v2.0.0-alpha.40
-
-/// <reference path="../typings/angular2/angular2.d.ts" />
+// - angular: v2.0.0-alpha.42
 
 import {Injectable} from 'angular2/angular2';
 

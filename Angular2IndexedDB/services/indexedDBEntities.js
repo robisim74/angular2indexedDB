@@ -14,30 +14,44 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// IndexedDBEntities class
+// define object stores entities & own methods
 var angular2_1 = require('angular2/angular2');
+// define every object store entity
+// EXAMPLE TODO
 var Todo = (function () {
     function Todo() {
     }
     return Todo;
 })();
 exports.Todo = Todo;
+// add a new entity here
 var IndexedDBEntities = (function () {
     function IndexedDBEntities() {
-        this.todos = [];
+        // OBJECT STORES ENTITIES as arrays
+        // EXAMPLE TODO
+        this.todos = []; // todos entity
     }
+    // add new entity here
+    // ENTITIES METHODS
+    // EXAMPLE TODO
+    // get todo
     IndexedDBEntities.prototype.getTodo = function (element) {
         var todo = new Todo();
         todo.todoId = element.todoId;
         todo.description = element.description;
         this.todos.push(todo);
     };
+    // add todo
     IndexedDBEntities.prototype.addTodo = function (record) {
         var todo = new Todo();
         todo.todoId = record.todoId;
         todo.description = record.description;
         this.todos.push(todo);
     };
+    // example of key
     IndexedDBEntities.prototype.createKey = function () {
+        // find max key
         var key = 0;
         this.todos.forEach(function (todo) {
             if (todo.todoId > key) {
@@ -46,10 +60,12 @@ var IndexedDBEntities = (function () {
         });
         return (key + 1);
     };
+    // delete todo	
     IndexedDBEntities.prototype.deleteTodo = function (todo) {
         var index = this.todos.indexOf(todo);
         this.todos.splice(index, 1);
     };
+    // clear todos
     IndexedDBEntities.prototype.clearTodos = function () {
         this.todos.splice(0);
     };

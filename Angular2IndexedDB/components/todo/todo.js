@@ -10,33 +10,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var indexedDB_1 = require('../../services/indexedDB');
-var indexedDBEntities_1 = require('../../services/indexedDBEntities');
+// services
+var indexedDB_1 = require('../../services/indexedDB'); // IndexedDB class
+var indexedDBEntities_1 = require('../../services/indexedDBEntities'); // IndexedDBEntities class & entities
 var todo = (function () {
     function todo(indexedDB, indexedDBEntities) {
         this.indexedDB = indexedDB;
         this.indexedDBEntities = indexedDBEntities;
     }
+    // list of todos
     todo.prototype.todos = function () {
         return this.indexedDBEntities.todos;
     };
+    // add a todo
     todo.prototype.addTodo = function (description) {
+        // UPDATE INDEXEDDB ASYNCHRONOUSLY
+        // record: key & value of object store
         var record = new indexedDBEntities_1.Todo();
         record.todoId = this.indexedDBEntities.createKey();
         record.description = description;
+        // call addRecord asynchronous method
+        // @param {string} storeName
+        // @param {any} record
         this.indexedDB.addRecordAsync("todoStore", record);
-        this.indexedDBEntities.addTodo(record);
+        // UPDATE ENTITIES NOW
+        this.indexedDBEntities.addTodo(record); // entities addTodo method
     };
+    // delete a todo
     todo.prototype.deleteTodo = function (todo) {
+        // UPDATE INDEXEDDB ASYNCHRONOUSLY
         var key = todo.todoId;
+        // call deleteRecord asynchronous method
+        // @param {string} storeName
+        // @param {any} key
         this.indexedDB.deleteRecordAsync("todoStore", key);
-        this.indexedDBEntities.deleteTodo(todo);
+        // UPDATE ENTITIES NOW
+        this.indexedDBEntities.deleteTodo(todo); // entities deleteTodo method
     };
+    // clear todos
     todo.prototype.clearTodos = function () {
+        // UPDATE INDEXEDDB ASYNCHRONOUSLY     
+        // call clearObjectStore asynchronous method
+        // @param {string} storeName
         this.indexedDB.clearObjectStoreAsync("todoStore");
-        this.indexedDBEntities.clearTodos();
+        // UPDATE ENTITIES NOW       
+        this.indexedDBEntities.clearTodos(); // entities clearTodos method
     };
     todo = __decorate([
+        // IndexedDBEntities class & entities
         angular2_1.Component({
             selector: 'todo'
         }),
