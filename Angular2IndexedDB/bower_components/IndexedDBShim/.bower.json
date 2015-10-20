@@ -36,6 +36,5 @@
   },
   "_source": "git://github.com/axemclion/IndexedDBShim.git",
   "_target": "~2.2.1",
-  "_originalSource": "IndexedDBShim",
-  "_direct": true
+  "_originalSource": "IndexedDBShim"
 }

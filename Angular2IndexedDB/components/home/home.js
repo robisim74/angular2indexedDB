@@ -40,7 +40,7 @@ var home = (function () {
         // IndexedDBEntities class & entities
         angular2_1.Component({
             selector: 'home',
-            bindings: [indexedDB_1.IndexedDB, indexedDBEntities_1.IndexedDBEntities] // IndexedDB & Entities binding: inherited by all descendants
+            providers: [indexedDB_1.IndexedDB, indexedDBEntities_1.IndexedDBEntities] // IndexedDB & Entities providers: inherited by all descendants
         }),
         angular2_1.View({
             templateUrl: './components/home/home.html',

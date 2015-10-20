@@ -8,7 +8,7 @@ import {IndexedDBEntities, Todo} from '../../services/indexedDBEntities'; // Ind
 
 @Component({
     selector: 'home',
-    bindings: [IndexedDB, IndexedDBEntities] // IndexedDB & Entities binding: inherited by all descendants
+    providers: [IndexedDB, IndexedDBEntities] // IndexedDB & Entities providers: inherited by all descendants
 })
 @View({
     templateUrl: './components/home/home.html',
