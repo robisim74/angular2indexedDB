@@ -28,9 +28,9 @@ var home = (function () {
             // call getAllRecords asynchronous method
             // @param {string} storeName
             _this.indexedDB.getAllRecordsAsync("todoStore", function (result) {
-                result.forEach(function (element) {
+                result.forEach(function (record) {
                     // LOAD DATA INTO ENTITIES
-                    _this.indexedDBEntities.getTodo(element); // entities getTodo method
+                    _this.indexedDBEntities.getTodo(record); // entities getTodo method
                 });
             });
             // add new call getAllRecords asynchronous method here 

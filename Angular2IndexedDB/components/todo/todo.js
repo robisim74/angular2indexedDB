@@ -37,15 +37,15 @@ var todo = (function () {
         this.indexedDBEntities.addTodo(record); // entities addTodo method
     };
     // delete a todo
-    todo.prototype.deleteTodo = function (todo) {
+    todo.prototype.deleteTodo = function (record) {
         // UPDATE INDEXEDDB ASYNCHRONOUSLY
-        var key = todo.todoId;
+        var key = record.todoId;
         // call deleteRecord asynchronous method
         // @param {string} storeName
         // @param {any} key
         this.indexedDB.deleteRecordAsync("todoStore", key);
         // UPDATE ENTITIES NOW
-        this.indexedDBEntities.deleteTodo(todo); // entities deleteTodo method
+        this.indexedDBEntities.deleteTodo(record); // entities deleteTodo method
     };
     // clear todos
     todo.prototype.clearTodos = function () {

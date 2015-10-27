@@ -36,18 +36,12 @@ var IndexedDBEntities = (function () {
     // ENTITIES METHODS
     // EXAMPLE TODO
     // get todo
-    IndexedDBEntities.prototype.getTodo = function (element) {
-        var todo = new Todo();
-        todo.todoId = element.todoId;
-        todo.description = element.description;
-        this.todos.push(todo);
+    IndexedDBEntities.prototype.getTodo = function (record) {
+        this.todos.push(record);
     };
     // add todo
     IndexedDBEntities.prototype.addTodo = function (record) {
-        var todo = new Todo();
-        todo.todoId = record.todoId;
-        todo.description = record.description;
-        this.todos.push(todo);
+        this.todos.push(record);
     };
     // example of key
     IndexedDBEntities.prototype.createKey = function () {
@@ -61,8 +55,8 @@ var IndexedDBEntities = (function () {
         return (key + 1);
     };
     // delete todo	
-    IndexedDBEntities.prototype.deleteTodo = function (todo) {
-        var index = this.todos.indexOf(todo);
+    IndexedDBEntities.prototype.deleteTodo = function (record) {
+        var index = this.todos.indexOf(record);
         this.todos.splice(index, 1);
     };
     // clear todos

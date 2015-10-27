@@ -30,10 +30,10 @@ export class home {
             // @param {string} storeName
             this.indexedDB.getAllRecordsAsync("todoStore", (result: any) => { // callback usage
             
-                result.forEach((element: Todo) => {
+                result.forEach((record: Todo) => {
 
                     // LOAD DATA INTO ENTITIES
-                    this.indexedDBEntities.getTodo(element); // entities getTodo method
+                    this.indexedDBEntities.getTodo(record); // entities getTodo method
 
                 });
 

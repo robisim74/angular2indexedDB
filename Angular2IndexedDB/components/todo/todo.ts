@@ -29,9 +29,9 @@ export class todo {
        
         // UPDATE INDEXEDDB ASYNCHRONOUSLY
         // record: key & value of object store
-        var record: Todo =new Todo();
+        var record: Todo = new Todo();
         record.todoId = this.indexedDBEntities.createKey();
-        record.description=description;       
+        record.description = description;       
         // call addRecord asynchronous method
         // @param {string} storeName
         // @param {any} record
@@ -43,17 +43,17 @@ export class todo {
     }
     
     // delete a todo
-    deleteTodo(todo: Todo) {
+    deleteTodo(record: Todo) {
                
         // UPDATE INDEXEDDB ASYNCHRONOUSLY
-        var key: number = todo.todoId;      
+        var key: number = record.todoId;      
         // call deleteRecord asynchronous method
         // @param {string} storeName
         // @param {any} key
         this.indexedDB.deleteRecordAsync("todoStore", key);
         
         // UPDATE ENTITIES NOW
-        this.indexedDBEntities.deleteTodo(todo); // entities deleteTodo method
+        this.indexedDBEntities.deleteTodo(record); // entities deleteTodo method
         
     }
     

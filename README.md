@@ -21,10 +21,7 @@ and the own methods to work with the entity, like the addition of an element:
 ```TypeScript
 // add todo
 addTodo(record: Todo) {
-    var todo: Todo = new Todo();
-    todo.todoId = record.todoId;
-    todo.description = record.description;
-    this.todos.push(todo);
+    this.todos.push(record);
 }
 ```
 When there is a request, for example the addition of an element, the component calls the asynchronous method of adding an element to the object store, but also calls the same method of adding an element to the entity.

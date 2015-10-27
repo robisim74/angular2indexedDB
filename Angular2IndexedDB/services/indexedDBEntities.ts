@@ -28,23 +28,15 @@ export class Todo {
 	// ENTITIES METHODS
 	// EXAMPLE TODO
 	// get todo
-	getTodo(element: any) {
+	getTodo(record: Todo) {
 
-		var todo: Todo = new Todo();
-		todo.todoId = element.todoId;
-		todo.description = element.description;
-
-		this.todos.push(todo);
+		this.todos.push(record);
 
 	}
 	// add todo
 	addTodo(record: Todo) {
 
-		var todo: Todo = new Todo();
-		todo.todoId = record.todoId;
-		todo.description = record.description;
-
-		this.todos.push(todo);
+		this.todos.push(record);
 
 	}
 	// example of key
@@ -62,9 +54,9 @@ export class Todo {
 
 	}
 	// delete todo	
-	deleteTodo(todo: Todo) {
+	deleteTodo(record: Todo) {
 
-		var index: number = this.todos.indexOf(todo);
+		var index: number = this.todos.indexOf(record);
 		this.todos.splice(index, 1);
 
 	}
