@@ -17,7 +17,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // IndexedDB class
 // db operations
 // dependencies:
-// - angular: v2.0.0-alpha.44
+// - angular: v2.0.0-alpha.45
 var angular2_1 = require('angular2/angular2');
 var objectStores_1 = require('./objectStores');
 var IndexedDB = (function () {

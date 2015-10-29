@@ -8,7 +8,7 @@
 // db operations
 
 // dependencies:
-// - angular: v2.0.0-alpha.44
+// - angular: v2.0.0-alpha.45
 
 import {Injectable} from 'angular2/angular2';
 
