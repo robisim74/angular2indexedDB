@@ -1,4 +1,4 @@
-import {Component, View, NgFor} from 'angular2/angular2';
+import {Component, View, NgFor, NgIf} from 'angular2/angular2';
 
 // services
 import {IndexedDB} from '../../services/indexedDB'; // IndexedDB class
@@ -9,7 +9,7 @@ import {IndexedDBEntities, Todo} from '../../services/indexedDBEntities'; // Ind
 })
 @View({
     templateUrl: './components/todo/todo.html',
-    directives: [NgFor]
+    directives: [NgFor, NgIf]
 })
 
 export class todo {
@@ -54,6 +54,20 @@ export class todo {
         
         // UPDATE ENTITIES NOW
         this.indexedDBEntities.deleteTodo(record); // entities deleteTodo method
+        
+    }
+    
+    // edit a todo
+    editTodo(record: Todo) {
+               
+        // UPDATE INDEXEDDB ASYNCHRONOUSLY 
+        // call editRecord asynchronous method
+        // @param {string} storeName
+        // @param {any} record
+        this.indexedDB.editRecordAsync("todoStore", record);
+        
+        // UPDATE ENTITIES NOW
+        this.indexedDBEntities.editTodo(record); // entities editTodo method
         
     }
     

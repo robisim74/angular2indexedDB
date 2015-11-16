@@ -47,6 +47,16 @@ var todo = (function () {
         // UPDATE ENTITIES NOW
         this.indexedDBEntities.deleteTodo(record); // entities deleteTodo method
     };
+    // edit a todo
+    todo.prototype.editTodo = function (record) {
+        // UPDATE INDEXEDDB ASYNCHRONOUSLY 
+        // call editRecord asynchronous method
+        // @param {string} storeName
+        // @param {any} record
+        this.indexedDB.editRecordAsync("todoStore", record);
+        // UPDATE ENTITIES NOW
+        this.indexedDBEntities.editTodo(record); // entities editTodo method
+    };
     // clear todos
     todo.prototype.clearTodos = function () {
         // UPDATE INDEXEDDB ASYNCHRONOUSLY     
@@ -63,7 +73,7 @@ var todo = (function () {
         }),
         angular2_1.View({
             templateUrl: './components/todo/todo.html',
-            directives: [angular2_1.NgFor]
+            directives: [angular2_1.NgFor, angular2_1.NgIf]
         }), 
         __metadata('design:paramtypes', [indexedDB_1.IndexedDB, indexedDBEntities_1.IndexedDBEntities])
     ], todo);

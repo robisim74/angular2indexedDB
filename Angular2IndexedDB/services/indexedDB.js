@@ -102,6 +102,19 @@ var IndexedDB = (function () {
             console.error("deleteRecord:", event.target.error.name);
         };
     };
+    // edit a record
+    IndexedDB.prototype.editRecordAsync = function (storeName, record) {
+        var store = this.getObjectStore(storeName, "readwrite"); // get store
+        var request = store.put(record); // put updated record back into the database
+        // success
+        request.onsuccess = function (event) {
+            console.log("editRecord:", event.target.readyState);
+        };
+        // error
+        request.onerror = function (event) {
+            console.error("editRecord:", event.target.error.name);
+        };
+    };
     // clear an object store
     IndexedDB.prototype.clearObjectStoreAsync = function (storeName) {
         var store = this.getObjectStore(storeName, "readwrite"); // get store

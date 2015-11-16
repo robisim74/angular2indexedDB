@@ -59,6 +59,12 @@ var IndexedDBEntities = (function () {
         var index = this.todos.indexOf(record);
         this.todos.splice(index, 1);
     };
+    // edit todo	
+    IndexedDBEntities.prototype.editTodo = function (record) {
+        var index = this.todos.indexOf(record);
+        this.todos[index].todoId = record.todoId;
+        this.todos[index].description = record.description;
+    };
     // clear todos
     IndexedDBEntities.prototype.clearTodos = function () {
         this.todos.splice(0);

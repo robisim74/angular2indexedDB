@@ -60,6 +60,14 @@ export class Todo {
 		this.todos.splice(index, 1);
 
 	}
+	// edit todo	
+	editTodo(record: Todo) {
+
+		var index: number = this.todos.indexOf(record);
+		this.todos[index].todoId=record.todoId;
+		this.todos[index].description=record.description;
+
+	}
 	// clear todos
 	clearTodos() {
 
