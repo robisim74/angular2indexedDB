@@ -14,24 +14,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ng-for="#todo of todos()">
+                <tr *ngFor="#todo of todos()">
                     <td>{{ todo.todoId }}</td>
-                    <td *ng-if="editMode != todo.todoId">
+                    <td *ngIf="editMode != todo.todoId">
                         {{ todo.description }}
                     </td>
-                    <td *ng-if="editMode == todo.todoId">
-                        <input [(ng-model)]="todo.description" type="text" class="form-control" id="editDescription">
+                    <td *ngIf="editMode == todo.todoId">
+                        <input [(ngModel)]="todo.description" type="text" class="form-control" id="editDescription">
                     </td>
-                    <td *ng-if="editMode != todo.todoId">
+                    <td *ngIf="editMode != todo.todoId">
                         <button class="btn btn-primary" (click)="deleteTodo(todo)">delete</button>
                     </td>
-                    <td *ng-if="editMode == todo.todoId">
+                    <td *ngIf="editMode == todo.todoId">
                         <button class="btn btn-primary" (click)="editTodo(todo); editMode = null">save</button>
                     </td>
-                    <td *ng-if="editMode != todo.todoId">
+                    <td *ngIf="editMode != todo.todoId">
                         <button class="btn btn-primary" (click)="editMode = todo.todoId">edit</button>
                     </td>
-                    <td *ng-if="editMode == todo.todoId">
+                    <td *ngIf="editMode == todo.todoId">
                         <button class="btn btn-primary" (click)="editMode = null">cancel</button>
                     </td>
                 </tr>
