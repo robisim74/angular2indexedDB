@@ -8,9 +8,9 @@
 // db operations
 
 // dependencies:
-// - angular: v2.0.0-alpha.52
+// - angular: v2.0.0-beta.0
 
-import {Injectable} from 'angular2/angular2';
+import {Injectable} from 'angular2/core';
 
 import {ObjectStores} from './objectStores';
 

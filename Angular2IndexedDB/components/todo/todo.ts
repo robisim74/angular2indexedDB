@@ -1,4 +1,4 @@
-import {Component, View, NgFor, NgIf} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
 
 // services
 import {IndexedDB} from '../../services/indexedDB'; // IndexedDB class
@@ -8,8 +8,7 @@ import {IndexedDBEntities, Todo} from '../../services/indexedDBEntities'; // Ind
     selector: 'todo'
 })
 @View({
-    templateUrl: './components/todo/todo.html',
-    directives: [NgFor, NgIf]
+    templateUrl: './components/todo/todo.html'
 })
 
 export class todo {

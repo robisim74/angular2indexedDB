@@ -7,7 +7,7 @@
 // IndexedDBEntities class
 // define object stores entities & own methods
 
-import {Injectable} from 'angular2/angular2';
+import {Injectable} from 'angular2/core';
 
 // define every object store entity
 // EXAMPLE TODO

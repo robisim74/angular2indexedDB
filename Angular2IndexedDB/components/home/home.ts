@@ -1,4 +1,4 @@
-﻿import {Component, View, NgIf} from 'angular2/angular2';
+﻿import {Component, View} from 'angular2/core';
 
 import {todo} from '../todo/todo';
 
@@ -12,7 +12,7 @@ import {IndexedDBEntities, Todo} from '../../services/indexedDBEntities'; // Ind
 })
 @View({
     templateUrl: './components/home/home.html',
-    directives: [todo, NgIf]
+    directives: [todo]
 })
 
 export class home {
