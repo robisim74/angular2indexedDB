@@ -31,7 +31,7 @@ Therefore with the entities we work to a level of abstraction higher, with the d
 ## Running the sample app
 What you need to run this app:
 - This repository
-- [Node and npm](https://nodejs.org), Bower already installed
+- [Node and npm](https://nodejs.org), [Bower](http://bower.io/) already installed
 
 In the command-prompt, go to the directory that contains `index.html`:
 ```
