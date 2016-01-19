@@ -1,8 +1,10 @@
-// ANGULAR 2 INDEXEDDB
-// indexedDB with entities in the angular 2 applications using typescript 
-// written by roberto simonetti
-// MIT license
-// https://github.com/robisim74/angular2indexedDB
+/**
+ * ANGULAR 2 INDEXEDDB
+ * indexedDB with entities in the angular 2 applications using typescript
+ * written by roberto simonetti
+ * MIT license
+ * https://github.com/robisim74/angular2indexedDB
+ */
 System.register(['angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -30,6 +32,12 @@ System.register(['angular2/core'], function(exports_1) {
             })();
             exports_1("Todo", Todo);
             // add a new entity here
+            /**
+             * IndexedDBEntities class
+             * define object stores entities & own methods
+             *
+             * @author roberto simonetti
+             */
             IndexedDBEntities = (function () {
                 function IndexedDBEntities() {
                     // OBJECT STORES ENTITIES as arrays

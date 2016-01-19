@@ -1,29 +1,36 @@
-﻿// ANGULAR 2 INDEXEDDB
-// indexedDB with entities in the angular 2 applications using typescript 
-// written by roberto simonetti
-// MIT license
-// https://github.com/robisim74/angular2indexedDB
-
-// IndexedDB class
-// db operations
-
-// dependencies:
-// - angular: v2.0.0-beta.0
+﻿/**
+ * ANGULAR 2 INDEXEDDB
+ * indexedDB with entities in the angular 2 applications using typescript
+ * written by roberto simonetti
+ * MIT license
+ * https://github.com/robisim74/angular2indexedDB
+ */
 
 import {Injectable} from 'angular2/core';
 
 import {ObjectStores} from './objectStores';
 
+/**
+ * IndexedDB class
+ * db operations
+ * 
+ * @author roberto simonetti
+ */
 @Injectable() export class IndexedDB {
 
     db: IDBDatabase; // local db
 
     constructor() { }
 
-    // open the database
+    /**
+     * open the database
+     * 
+     * @param dbName
+     * @param version
+     */
     dbOpenAsync(dbName: string, version: number, callback: () => void) {
 
-        // specify the name and version
+        // specify name and version
         var request: IDBOpenDBRequest = indexedDB.open(dbName, version);
 
         // success
@@ -55,17 +62,26 @@ import {ObjectStores} from './objectStores';
         };
 
     }
-    
-    // get object store
-    getObjectStore(name: string, mode: string) {
+
+    /**
+     * get object store
+     * 
+     * @param name
+     * @param mode
+     * @return the object store
+     */
+    private getObjectStore(name: string, mode: string) {
 
         var tx: IDBTransaction = this.db.transaction(name, mode);
         return tx.objectStore(name);
 
     }
     
-    // indexedDB methods
-    // get all records
+    /**
+     * get all records
+     * 
+     * @param storeName the object store name
+     */
     getAllRecordsAsync(storeName: string, callback: (result: any) => void) { // callback typing
 
         var result: any = []; // return records into an array
@@ -102,7 +118,12 @@ import {ObjectStores} from './objectStores';
         }
 
     }
-    // add a record
+    /**
+     * add a record
+     * 
+     * @param storeName the object store name
+     * @param record the record to add
+     */
     addRecordAsync(storeName: string, record: any) {
 
         var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite"); // get store
@@ -122,8 +143,13 @@ import {ObjectStores} from './objectStores';
 
         }
 
-    }   
-    // delete a record
+    }
+    /**
+     * delete a record
+     * 
+     * @param storeName the object store name
+     * @param key the key of the record to delete
+     */
     deleteRecordAsync(storeName: string, key: any) {
 
         var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite"); // get store
@@ -144,7 +170,12 @@ import {ObjectStores} from './objectStores';
         }
 
     }
-    // edit a record
+    /**
+     * edit a record
+     * 
+     * @param storeName the object store name
+     * @param record the record to update
+     */
     editRecordAsync(storeName: string, record: any) {
 
         var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite"); // get store
@@ -165,7 +196,11 @@ import {ObjectStores} from './objectStores';
         }
 
     }  
-    // clear an object store
+    /**
+     * clear an object store
+     * 
+     * @param storeName the object store name
+     */
     clearObjectStoreAsync(storeName: string) {
 
         var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite"); // get store

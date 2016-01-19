@@ -32,12 +32,12 @@ System.register(['angular2/core', '../todo/todo', '../../services/indexedDB', '.
                     this.indexedDBEntities = indexedDBEntities;
                     // OPEN DB ASYNCHRONOUSLY & LOAD DATA INTO ENTITIES
                     // DATA WILL BE AVAILABLE ON NEXT CHANGE DETECTION
-                    // @param {string} dbName
-                    // @param {number} version
+                    // @param dbName
+                    // @param version
                     this.indexedDB.dbOpenAsync("appDB", 1, function () {
                         // the object stores will be loaded asynchronously
                         // call getAllRecords asynchronous method
-                        // @param {string} storeName
+                        // @param storeName
                         _this.indexedDB.getAllRecordsAsync("todoStore", function (result) {
                             result.forEach(function (record) {
                                 // LOAD DATA INTO ENTITIES

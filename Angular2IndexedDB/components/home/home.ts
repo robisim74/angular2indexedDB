@@ -21,13 +21,13 @@ export class home {
 
         // OPEN DB ASYNCHRONOUSLY & LOAD DATA INTO ENTITIES
         // DATA WILL BE AVAILABLE ON NEXT CHANGE DETECTION
-        // @param {string} dbName
-        // @param {number} version
+        // @param dbName
+        // @param version
         this.indexedDB.dbOpenAsync("appDB", 1, () => { // callback usage
             
             // the object stores will be loaded asynchronously
             // call getAllRecords asynchronous method
-            // @param {string} storeName
+            // @param storeName
             this.indexedDB.getAllRecordsAsync("todoStore", (result: any) => { // callback usage
             
                 result.forEach((record: Todo) => {

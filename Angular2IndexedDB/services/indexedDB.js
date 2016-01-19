@@ -1,8 +1,10 @@
-// ANGULAR 2 INDEXEDDB
-// indexedDB with entities in the angular 2 applications using typescript 
-// written by roberto simonetti
-// MIT license
-// https://github.com/robisim74/angular2indexedDB
+/**
+ * ANGULAR 2 INDEXEDDB
+ * indexedDB with entities in the angular 2 applications using typescript
+ * written by roberto simonetti
+ * MIT license
+ * https://github.com/robisim74/angular2indexedDB
+ */
 System.register(['angular2/core', './objectStores'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -24,13 +26,24 @@ System.register(['angular2/core', './objectStores'], function(exports_1) {
                 objectStores_1 = objectStores_1_1;
             }],
         execute: function() {
+            /**
+             * IndexedDB class
+             * db operations
+             *
+             * @author roberto simonetti
+             */
             IndexedDB = (function () {
                 function IndexedDB() {
                 }
-                // open the database
+                /**
+                 * open the database
+                 *
+                 * @param dbName
+                 * @param version
+                 */
                 IndexedDB.prototype.dbOpenAsync = function (dbName, version, callback) {
                     var _this = this;
-                    // specify the name and version
+                    // specify name and version
                     var request = indexedDB.open(dbName, version);
                     // success
                     request.onsuccess = function (event) {
@@ -52,13 +65,22 @@ System.register(['angular2/core', './objectStores'], function(exports_1) {
                         objectStores.createStores(_this.db);
                     };
                 };
-                // get object store
+                /**
+                 * get object store
+                 *
+                 * @param name
+                 * @param mode
+                 * @return the object store
+                 */
                 IndexedDB.prototype.getObjectStore = function (name, mode) {
                     var tx = this.db.transaction(name, mode);
                     return tx.objectStore(name);
                 };
-                // indexedDB methods
-                // get all records
+                /**
+                 * get all records
+                 *
+                 * @param storeName the object store name
+                 */
                 IndexedDB.prototype.getAllRecordsAsync = function (storeName, callback) {
                     var result = []; // return records into an array
                     var store = this.getObjectStore(storeName, "readonly"); // get store
@@ -80,7 +102,12 @@ System.register(['angular2/core', './objectStores'], function(exports_1) {
                         console.error("getAllRecords:", event.target.error.name);
                     };
                 };
-                // add a record
+                /**
+                 * add a record
+                 *
+                 * @param storeName the object store name
+                 * @param record the record to add
+                 */
                 IndexedDB.prototype.addRecordAsync = function (storeName, record) {
                     var store = this.getObjectStore(storeName, "readwrite"); // get store
                     var request = store.add(record); // add a new record
@@ -93,7 +120,12 @@ System.register(['angular2/core', './objectStores'], function(exports_1) {
                         console.error("addRecord:", event.target.error.name);
                     };
                 };
-                // delete a record
+                /**
+                 * delete a record
+                 *
+                 * @param storeName the object store name
+                 * @param key the key of the record to delete
+                 */
                 IndexedDB.prototype.deleteRecordAsync = function (storeName, key) {
                     var store = this.getObjectStore(storeName, "readwrite"); // get store
                     var request = store.delete(key); // delete record by key
@@ -106,7 +138,12 @@ System.register(['angular2/core', './objectStores'], function(exports_1) {
                         console.error("deleteRecord:", event.target.error.name);
                     };
                 };
-                // edit a record
+                /**
+                 * edit a record
+                 *
+                 * @param storeName the object store name
+                 * @param record the record to update
+                 */
                 IndexedDB.prototype.editRecordAsync = function (storeName, record) {
                     var store = this.getObjectStore(storeName, "readwrite"); // get store
                     var request = store.put(record); // put updated record back into the database
@@ -119,7 +156,11 @@ System.register(['angular2/core', './objectStores'], function(exports_1) {
                         console.error("editRecord:", event.target.error.name);
                     };
                 };
-                // clear an object store
+                /**
+                 * clear an object store
+                 *
+                 * @param storeName the object store name
+                 */
                 IndexedDB.prototype.clearObjectStoreAsync = function (storeName) {
                     var store = this.getObjectStore(storeName, "readwrite"); // get store
                     var request = store.clear(); // clear object store

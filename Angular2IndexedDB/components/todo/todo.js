@@ -39,8 +39,8 @@ System.register(['angular2/core', '../../services/indexedDB', '../../services/in
                     record.todoId = this.indexedDBEntities.createKey();
                     record.description = description;
                     // call addRecord asynchronous method
-                    // @param {string} storeName
-                    // @param {any} record
+                    // @param storeName
+                    // @param record
                     this.indexedDB.addRecordAsync("todoStore", record);
                     // UPDATE ENTITIES NOW
                     this.indexedDBEntities.addTodo(record); // entities addTodo method
@@ -50,8 +50,8 @@ System.register(['angular2/core', '../../services/indexedDB', '../../services/in
                     // UPDATE INDEXEDDB ASYNCHRONOUSLY
                     var key = record.todoId;
                     // call deleteRecord asynchronous method
-                    // @param {string} storeName
-                    // @param {any} key
+                    // @param storeName
+                    // @param key
                     this.indexedDB.deleteRecordAsync("todoStore", key);
                     // UPDATE ENTITIES NOW
                     this.indexedDBEntities.deleteTodo(record); // entities deleteTodo method
@@ -60,8 +60,8 @@ System.register(['angular2/core', '../../services/indexedDB', '../../services/in
                 todo.prototype.editTodo = function (record) {
                     // UPDATE INDEXEDDB ASYNCHRONOUSLY 
                     // call editRecord asynchronous method
-                    // @param {string} storeName
-                    // @param {any} record
+                    // @param storeName
+                    // @param record
                     this.indexedDB.editRecordAsync("todoStore", record);
                     // UPDATE ENTITIES NOW
                     this.indexedDBEntities.editTodo(record); // entities editTodo method
@@ -70,7 +70,7 @@ System.register(['angular2/core', '../../services/indexedDB', '../../services/in
                 todo.prototype.clearTodos = function () {
                     // UPDATE INDEXEDDB ASYNCHRONOUSLY     
                     // call clearObjectStore asynchronous method
-                    // @param {string} storeName
+                    // @param storeName
                     this.indexedDB.clearObjectStoreAsync("todoStore");
                     // UPDATE ENTITIES NOW       
                     this.indexedDBEntities.clearTodos(); // entities clearTodos method
