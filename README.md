@@ -1,5 +1,5 @@
 # Angular 2 IndexedDB
-> Angular 2 IndexedDB is an implementation experiment of IndexedDB with Entities in the new Angular 2 applications using TypeScript.
+> IndexedDB with entities in the new Angular 2 apps using typescript.
 
 ## The logic of IndexedDB with Entities
 Operations performed using IndexedDB are done asynchronously, so as not to block the rest of an application running. Well. But if we don't insert the data that we read directly into the DOM, just as in the Angular 2 applications, we have a problem: the data are not ready to be rendered by the view when we read or update them.
