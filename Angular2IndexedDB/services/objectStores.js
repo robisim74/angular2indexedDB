@@ -1,7 +1,7 @@
 /**
  * ANGULAR 2 INDEXEDDB
- * indexedDB with entities in the new angular 2 applications using typescript
- * written by roberto simonetti
+ * IndexedDB with entities in the new Angular 2 applications using TypeScript
+ * written by Roberto Simonetti
  * MIT license
  * https://github.com/robisim74/angular2indexedDB
  */
@@ -11,16 +11,16 @@ System.register([], function(exports_1) {
         setters:[],
         execute: function() {
             /**
-             * ObjectStores class
-             * define the object stores of db
+             * ObjectStores class.
+             * Defines the object stores of the db.
              *
-             * @author roberto simonetti
+             * @author Roberto Simonetti
              */
             ObjectStores = (function () {
                 function ObjectStores() {
                 }
                 /**
-                 * create object stores
+                 * Creates the object stores.
                  *
                  * key               value
                  *
@@ -31,9 +31,9 @@ System.register([], function(exports_1) {
                  */
                 ObjectStores.prototype.createStores = function (db) {
                     // EXAMPLE TODO
-                    // create todo store
+                    // Create the todo store.
                     var todoStore = db.createObjectStore("todoStore", { keyPath: 'todoId' });
-                    // add new stores here
+                    // Add new stores here.
                 };
                 return ObjectStores;
             })();

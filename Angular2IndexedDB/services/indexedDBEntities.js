@@ -1,7 +1,7 @@
 /**
  * ANGULAR 2 INDEXEDDB
- * indexedDB with entities in the new angular 2 applications using typescript
- * written by roberto simonetti
+ * IndexedDB with entities in the new Angular 2 applications using TypeScript
+ * written by Roberto Simonetti
  * MIT license
  * https://github.com/robisim74/angular2indexedDB
  */
@@ -23,7 +23,7 @@ System.register(['angular2/core'], function(exports_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            // define every object store entity
+            // Defines the every object store entity.
             // EXAMPLE TODO
             Todo = (function () {
                 function Todo() {
@@ -31,33 +31,29 @@ System.register(['angular2/core'], function(exports_1) {
                 return Todo;
             })();
             exports_1("Todo", Todo);
-            // add a new entity here
+            // Add a new entity here.
             /**
-             * IndexedDBEntities class
-             * define object stores entities & own methods
+             * IndexedDBEntities class.
+             * Defines the object stores entities & own methods.
              *
-             * @author roberto simonetti
+             * @author Roberto Simonetti
              */
             IndexedDBEntities = (function () {
                 function IndexedDBEntities() {
-                    // OBJECT STORES ENTITIES as arrays
+                    // OBJECT STORES ENTITIES
                     // EXAMPLE TODO
-                    this.todos = []; // todos entity
+                    this.todos = []; // Todos entity.
                 }
-                // add new entity here
+                // Add a new entity here.
                 // ENTITIES METHODS
                 // EXAMPLE TODO
-                // get todo
-                IndexedDBEntities.prototype.getTodo = function (record) {
-                    this.todos.push(record);
-                };
-                // add todo
+                // Adds a todo.
                 IndexedDBEntities.prototype.addTodo = function (record) {
                     this.todos.push(record);
                 };
-                // example of key
+                // Example of key.
                 IndexedDBEntities.prototype.createKey = function () {
-                    // find max key
+                    // Finds the max key.
                     var key = 0;
                     this.todos.forEach(function (todo) {
                         if (todo.todoId > key) {
@@ -66,18 +62,18 @@ System.register(['angular2/core'], function(exports_1) {
                     });
                     return (key + 1);
                 };
-                // delete todo	
+                // Deletes a todo.	
                 IndexedDBEntities.prototype.deleteTodo = function (record) {
                     var index = this.todos.indexOf(record);
                     this.todos.splice(index, 1);
                 };
-                // edit todo	
+                // Edits a todo.	
                 IndexedDBEntities.prototype.editTodo = function (record) {
                     var index = this.todos.indexOf(record);
                     this.todos[index].todoId = record.todoId;
                     this.todos[index].description = record.description;
                 };
-                // clear todos
+                // Clears the todos.
                 IndexedDBEntities.prototype.clearTodos = function () {
                     this.todos.splice(0);
                 };

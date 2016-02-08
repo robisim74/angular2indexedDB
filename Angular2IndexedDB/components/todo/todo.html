@@ -1,9 +1,9 @@
-<!--todos component-->
+<!--todo component-->
 
 <div class="row">
     <div class="col-md-6">
 
-        <h2>to do list</h2>
+        <h2>todos list</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -37,7 +37,7 @@
                 </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-default btn-block" (click)="clearTodos()">clear</button>
+        <button type="button" class="btn btn-default btn-block" (click)="clearTodos()">clear todos</button>
         <hr />
 
     </div>
@@ -49,7 +49,7 @@
                 <label for="inputDescription">description:</label>
                 <input #description type="text" class="form-control" id="inputDescription" placeholder="description">
             </div>
-            <button type="button" class="btn btn-default btn-block" (click)="addTodo(description.value)">add to do</button>
+            <button type="button" class="btn btn-default btn-block" (click)="addTodo(description.value)">add a todo</button>
         </form>
         <br>
 

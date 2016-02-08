@@ -1,53 +1,47 @@
 /**
  * ANGULAR 2 INDEXEDDB
- * indexedDB with entities in the new angular 2 applications using typescript
- * written by roberto simonetti
+ * IndexedDB with entities in the new Angular 2 applications using TypeScript
+ * written by Roberto Simonetti
  * MIT license
  * https://github.com/robisim74/angular2indexedDB
  */
 
 import {Injectable} from 'angular2/core';
 
-// define every object store entity
+// Defines the every object store entity.
 // EXAMPLE TODO
 export class Todo {
-    todoId: number; // key
-    // value {}
+    todoId: number; // Key.
+    // Value {}.
     description: string;
 }
-// add a new entity here
+// Add a new entity here.
 
 /**
- * IndexedDBEntities class
- * define object stores entities & own methods
+ * IndexedDBEntities class.
+ * Defines the object stores entities & own methods.
  * 
- * @author roberto simonetti
+ * @author Roberto Simonetti
  */
 @Injectable() export class IndexedDBEntities {
 	
-    // OBJECT STORES ENTITIES as arrays
+    // OBJECT STORES ENTITIES
     // EXAMPLE TODO
-    todos: Array<Todo> = []; // todos entity
-    // add new entity here
+    todos: Array<Todo> = []; // Todos entity.
+    // Add a new entity here.
 	
     // ENTITIES METHODS
     // EXAMPLE TODO
-    // get todo
-    getTodo(record: Todo) {
-
-        this.todos.push(record);
-
-    }
-    // add todo
+    // Adds a todo.
     addTodo(record: Todo) {
 
         this.todos.push(record);
 
     }
-    // example of key
+    // Example of key.
     createKey() {
 		
-        // find max key
+        // Finds the max key.
         var key: number = 0;
         this.todos.forEach((todo: Todo) => {
 
@@ -58,14 +52,14 @@ export class Todo {
         return (key + 1);
 
     }
-    // delete todo	
+    // Deletes a todo.	
     deleteTodo(record: Todo) {
 
         var index: number = this.todos.indexOf(record);
         this.todos.splice(index, 1);
 
     }
-    // edit todo	
+    // Edits a todo.	
     editTodo(record: Todo) {
 
         var index: number = this.todos.indexOf(record);
@@ -73,7 +67,7 @@ export class Todo {
         this.todos[index].description = record.description;
 
     }
-    // clear todos
+    // Clears the todos.
     clearTodos() {
 
         this.todos.splice(0);

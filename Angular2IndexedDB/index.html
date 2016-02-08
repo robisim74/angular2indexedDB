@@ -8,12 +8,12 @@
     <title>angular 2 indexedDB</title>
 
     <!--frameworks-->
-    <!--load angular 2 libraries-->
+    <!--loads Angular 2 libraries-->
     <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.min.js"></script>
 
-    <!--configure systemjs-->
+    <!--configures SystemJS-->
     <script>
         System.config({
             map: {
@@ -25,17 +25,17 @@
 
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
 
-    <!--css-->
+    <!--CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 
-<!--display the application-->
+<!--displays the application-->
 <body>
 
     <app></app>
 
     <script>
-        // bootstrap the angular 2 application
+        // bootstraps the Angular 2 application
         System.import('app')
             .then(null, console.error.bind(console));
     </script>
@@ -43,7 +43,7 @@
     <!--scripts-->
     <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <!-- add full indexedDB support to any web browser that supports websql -->
+    <!-- add full IndexedDB support to any web browser that supports WebSQL-->
     <script src="bower_components/IndexedDBShim/dist/indexeddbshim.min.js"></script>
 
 </body>

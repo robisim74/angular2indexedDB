@@ -2,13 +2,13 @@
 
 import {todo} from '../todo/todo';
 
-// services
-import {IndexedDB} from '../../services/indexedDB'; // IndexedDB class
-import {IndexedDBEntities, Todo} from '../../services/indexedDBEntities'; // IndexedDBEntities class & entities
+// Services.
+import {IndexedDB} from '../../services/indexedDB'; // IndexedDB class.
+import {IndexedDBEntities, Todo} from '../../services/indexedDBEntities'; // IndexedDBEntities class & entities.
 
 @Component({
     selector: 'home',
-    providers: [IndexedDB, IndexedDBEntities] // IndexedDB & Entities providers: inherited by all descendants
+    providers: [IndexedDB, IndexedDBEntities] // IndexedDB & Entities providers: inherited by all descendants.
 })
 @View({
     templateUrl: './components/home/home.html',
@@ -17,31 +17,31 @@ import {IndexedDBEntities, Todo} from '../../services/indexedDBEntities'; // Ind
 
 export class home {
 
-    constructor(public indexedDB: IndexedDB, public indexedDBEntities: IndexedDBEntities) { // inject instances of IndexedDB & Entities in the constructor
+    constructor(public indexedDB: IndexedDB, public indexedDBEntities: IndexedDBEntities) { // Injects the instances of IndexedDB & Entities in the constructor.
 
-        // OPEN DB ASYNCHRONOUSLY & LOAD DATA INTO ENTITIES
-        // DATA WILL BE AVAILABLE ON NEXT CHANGE DETECTION
+        // OPENS THE DB ASYNCHRONOUSLY & LOADS DATA INTO ENTITIES
+        // DATA WILL BE AVAILABLE ON THE NEXT CHANGE DETECTION
         // @param dbName
         // @param version
-        this.indexedDB.dbOpenAsync("appDB", 1, () => { // callback usage
+        this.indexedDB.dbOpenAsync("appDB", 1, () => { // Callback usage.
             
-            // the object stores will be loaded asynchronously
-            // call getAllRecords asynchronous method
+            // The object stores will be loaded asynchronously.
+            // Calls the getAllRecords asynchronous method.
             // @param storeName
-            this.indexedDB.getAllRecordsAsync("todoStore", (result: any) => { // callback usage
+            this.indexedDB.getAllRecordsAsync("todoStore", (result: any) => { // Callback usage.
             
                 result.forEach((record: Todo) => {
 
-                    // LOAD DATA INTO ENTITIES
-                    this.indexedDBEntities.getTodo(record); // entities getTodo method
+                    // LOADS DATA INTO ENTITIES
+                    this.indexedDBEntities.addTodo(record); // Entities getTodo method.
 
                 });
 
             });
             
-            // add new call getAllRecords asynchronous method here 
+            // Add a new call to the getAllRecords asynchronous method here. 
 
-        }); // if the db doesn't exist, it will be created
+        }); // If the db doesn't exist, it will be created.
 
     }
 

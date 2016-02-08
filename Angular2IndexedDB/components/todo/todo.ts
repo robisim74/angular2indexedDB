@@ -1,8 +1,8 @@
 import {Component, View} from 'angular2/core';
 
-// services
-import {IndexedDB} from '../../services/indexedDB'; // IndexedDB class
-import {IndexedDBEntities, Todo} from '../../services/indexedDBEntities'; // IndexedDBEntities class & entities
+// Services.
+import {IndexedDB} from '../../services/indexedDB'; // IndexedDB class.
+import {IndexedDBEntities, Todo} from '../../services/indexedDBEntities'; // IndexedDBEntities class & entities.
 
 @Component({
     selector: 'todo'
@@ -13,73 +13,73 @@ import {IndexedDBEntities, Todo} from '../../services/indexedDBEntities'; // Ind
 
 export class todo {
 
-    constructor(public indexedDB: IndexedDB, public indexedDBEntities: IndexedDBEntities) { // inject instances of IndexedDB & Entities in the constructor
+    constructor(public indexedDB: IndexedDB, public indexedDBEntities: IndexedDBEntities) { // Injects the instances of IndexedDB & Entities in the constructor.
     }
 
-    // list of todos
+    // List of the todos.
     todos() {
 
         return this.indexedDBEntities.todos;
 
     }
     
-    // add a todo
+    // Adds a todo.
     addTodo(description: string) {
        
-        // UPDATE INDEXEDDB ASYNCHRONOUSLY
-        // record: key & value of object store
+        // UPDATES INDEXEDDB ASYNCHRONOUSLY
+        // record: key & value of the object store.
         var record: Todo = new Todo();
         record.todoId = this.indexedDBEntities.createKey();
         record.description = description;       
-        // call addRecord asynchronous method
+        // Calls the addRecord asynchronous method.
         // @param storeName
         // @param record
         this.indexedDB.addRecordAsync("todoStore", record);
         
-        // UPDATE ENTITIES NOW
-        this.indexedDBEntities.addTodo(record); // entities addTodo method
+        // UPDATES ENTITIES NOW
+        this.indexedDBEntities.addTodo(record); // Entities addTodo method.
 
     }
     
-    // delete a todo
+    // Deletes a todo.
     deleteTodo(record: Todo) {
                
-        // UPDATE INDEXEDDB ASYNCHRONOUSLY
+        // UPDATES INDEXEDDB ASYNCHRONOUSLY
         var key: number = record.todoId;      
-        // call deleteRecord asynchronous method
+        // Calls the deleteRecord asynchronous method.
         // @param storeName
         // @param key
         this.indexedDB.deleteRecordAsync("todoStore", key);
         
-        // UPDATE ENTITIES NOW
-        this.indexedDBEntities.deleteTodo(record); // entities deleteTodo method
+        // UPDATES ENTITIES NOW
+        this.indexedDBEntities.deleteTodo(record); // Entities deleteTodo method.
         
     }
     
-    // edit a todo
+    // Edits a todo.
     editTodo(record: Todo) {
                
-        // UPDATE INDEXEDDB ASYNCHRONOUSLY 
-        // call editRecord asynchronous method
+        // UPDATES INDEXEDDB ASYNCHRONOUSLY 
+        // Calls the editRecord asynchronous method.
         // @param storeName
         // @param record
         this.indexedDB.editRecordAsync("todoStore", record);
         
-        // UPDATE ENTITIES NOW
-        this.indexedDBEntities.editTodo(record); // entities editTodo method
+        // UPDATES ENTITIES NOW
+        this.indexedDBEntities.editTodo(record); // Entities editTodo method.
         
     }
     
-    // clear todos
+    // Clears the todos.
     clearTodos() {
         
-        // UPDATE INDEXEDDB ASYNCHRONOUSLY     
-        // call clearObjectStore asynchronous method
+        // UPDATES INDEXEDDB ASYNCHRONOUSLY     
+        // Calls the clearObjectStore asynchronous method.
         // @param storeName
         this.indexedDB.clearObjectStoreAsync("todoStore");
         
-        // UPDATE ENTITIES NOW       
-        this.indexedDBEntities.clearTodos(); // entities clearTodos method
+        // UPDATES ENTITIES NOW       
+        this.indexedDBEntities.clearTodos(); // Entities clearTodos method.
         
     }
 

@@ -1,7 +1,7 @@
 ﻿/**
  * ANGULAR 2 INDEXEDDB
- * indexedDB with entities in the new angular 2 applications using typescript
- * written by roberto simonetti
+ * IndexedDB with entities in the new Angular 2 applications using TypeScript
+ * written by Roberto Simonetti
  * MIT license
  * https://github.com/robisim74/angular2indexedDB
  */
@@ -11,29 +11,28 @@ import {Injectable} from 'angular2/core';
 import {ObjectStores} from './objectStores';
 
 /**
- * IndexedDB class
- * db operations
+ * IndexedDB class: db operations.
  * 
- * @author roberto simonetti
+ * @author Roberto Simonetti
  */
 @Injectable() export class IndexedDB {
 
-    db: IDBDatabase; // local db
+    db: IDBDatabase; // Local db.
 
     constructor() { }
 
     /**
-     * open the database
+     * Open the database.
      * 
      * @param dbName
      * @param version
      */
     dbOpenAsync(dbName: string, version: number, callback: () => void) {
 
-        // specify name and version
+        // Specifies name and version.
         var request: IDBOpenDBRequest = indexedDB.open(dbName, version);
 
-        // success
+        // Success.
         request.onsuccess = (event) => {
 
             this.db = (<IDBOpenDBRequest>event.target).result;
@@ -42,7 +41,7 @@ import {ObjectStores} from './objectStores';
             callback();
 
         };        
-        // error
+        // Error.
         request.onerror = (event) => {
 
             console.error("dbOpen:", (<IDBOpenDBRequest>event.target).error.name);
@@ -51,11 +50,10 @@ import {ObjectStores} from './objectStores';
 
         request.onupgradeneeded = (event) => {
 
-            // the db doesn't exist, so crete object stores
+            // The db doesn't exist, so crete the object stores.
             this.db = (<IDBOpenDBRequest>event.target).result;;
             
-            // instantiate Object Stores class
-            // and call create stores method
+            // Instantiates the ObjectStores class and call the createStores method.
             var objectStores: ObjectStores = new ObjectStores();
             objectStores.createStores(this.db);
 
@@ -64,11 +62,11 @@ import {ObjectStores} from './objectStores';
     }
 
     /**
-     * get object store
+     * Gets the object store.
      * 
      * @param name
      * @param mode
-     * @return the object store
+     * @return The object store
      */
     private getObjectStore(name: string, mode: string) {
 
@@ -78,19 +76,19 @@ import {ObjectStores} from './objectStores';
     }
     
     /**
-     * get all records
+     * Gets all records.
      * 
-     * @param storeName the object store name
+     * @param storeName The object store name
      */
-    getAllRecordsAsync(storeName: string, callback: (result: any) => void) { // callback typing
+    getAllRecordsAsync(storeName: string, callback: (result: any) => void) { // Callback typing.
 
-        var result: any = []; // return records into an array
+        var result: any = []; // Return the records into an array.
 
-        var store: IDBObjectStore = this.getObjectStore(storeName, "readonly"); // get store
+        var store: IDBObjectStore = this.getObjectStore(storeName, "readonly"); // Gets the store.
 
         var request: IDBRequest = store.openCursor();
         
-        // success
+        // Success.
         request.onsuccess = (event) => {
 
             var cursor: IDBCursorWithValue = (<IDBRequest>event.target).result;
@@ -105,12 +103,12 @@ import {ObjectStores} from './objectStores';
 
                 console.log("getAllRecords:", (<IDBRequest>event.target).readyState)
 
-                callback(result); // on success, call callback and pass result
+                callback(result); // On success, calls callback and pass result.
                 
             }
 
         }
-        // error
+        // Error.
         request.onerror = (event) => {
 
             console.error("getAllRecords:", (<IDBRequest>event.target).error.name);
@@ -119,24 +117,24 @@ import {ObjectStores} from './objectStores';
 
     }
     /**
-     * add a record
+     * Adds a record.
      * 
-     * @param storeName the object store name
-     * @param record the record to add
+     * @param storeName The object store name
+     * @param record The record to add
      */
     addRecordAsync(storeName: string, record: any) {
 
-        var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite"); // get store
+        var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite"); // Gets the store.
         
-        var request: IDBRequest = store.add(record); // add a new record
+        var request: IDBRequest = store.add(record); // Adds a new record.
         
-        // success
+        // Success.
         request.onsuccess = (event) => {
 
             console.log("addRecord:", (<IDBRequest>event.target).readyState)
 
         }
-        // error
+        // Error.
         request.onerror = (event) => {
 
             console.error("addRecord:", (<IDBRequest>event.target).error.name);
@@ -145,24 +143,24 @@ import {ObjectStores} from './objectStores';
 
     }
     /**
-     * delete a record
+     * Deletes a record.
      * 
-     * @param storeName the object store name
-     * @param key the key of the record to delete
+     * @param storeName The object store name
+     * @param key The key of the record to delete
      */
     deleteRecordAsync(storeName: string, key: any) {
 
-        var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite"); // get store
+        var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite"); // Gets the store.
 
-        var request: IDBRequest = store.delete(key); // delete record by key
+        var request: IDBRequest = store.delete(key); // Deletes the record by the key.
         
-        // success
+        // Success.
         request.onsuccess = (event) => {
 
             console.log("deleteRecord:", (<IDBRequest>event.target).readyState)
 
         }
-        // error
+        // Error.
         request.onerror = (event) => {
 
             console.error("deleteRecord:", (<IDBRequest>event.target).error.name);
@@ -171,24 +169,24 @@ import {ObjectStores} from './objectStores';
 
     }
     /**
-     * edit a record
+     * Edits a record.
      * 
-     * @param storeName the object store name
-     * @param record the record to update
+     * @param storeName The object store name
+     * @param record The record to update
      */
     editRecordAsync(storeName: string, record: any) {
 
-        var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite"); // get store
+        var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite"); // Gets the store.
         
-        var request: IDBRequest = store.put(record); // put updated record back into the database
+        var request: IDBRequest = store.put(record); // Puts the updated record back into the database.
         
-        // success
+        // Success.
         request.onsuccess = (event) => {
 
             console.log("editRecord:", (<IDBRequest>event.target).readyState)
 
         }
-        // error
+        // Error.
         request.onerror = (event) => {
 
             console.error("editRecord:", (<IDBRequest>event.target).error.name);
@@ -197,23 +195,23 @@ import {ObjectStores} from './objectStores';
 
     }  
     /**
-     * clear an object store
+     * Clears an object store.
      * 
-     * @param storeName the object store name
+     * @param storeName The object store name
      */
     clearObjectStoreAsync(storeName: string) {
 
-        var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite"); // get store
+        var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite"); // Gets the store.
         
-        var request: IDBRequest = store.clear(); // clear object store
+        var request: IDBRequest = store.clear(); // Clears the object store.
         
-        // success
+        // Success.
         request.onsuccess = (event) => {
 
             console.log("clearObjectStore:", (<IDBRequest>event.target).readyState)
 
         }
-        // error
+        // Error.
         request.onerror = (event) => {
 
             console.error("clearObjectStore:", (<IDBRequest>event.target).error.name);

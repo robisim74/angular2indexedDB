@@ -30,28 +30,28 @@ System.register(['angular2/core', '../todo/todo', '../../services/indexedDB', '.
                     var _this = this;
                     this.indexedDB = indexedDB;
                     this.indexedDBEntities = indexedDBEntities;
-                    // OPEN DB ASYNCHRONOUSLY & LOAD DATA INTO ENTITIES
-                    // DATA WILL BE AVAILABLE ON NEXT CHANGE DETECTION
+                    // OPENS THE DB ASYNCHRONOUSLY & LOADS DATA INTO ENTITIES
+                    // DATA WILL BE AVAILABLE ON THE NEXT CHANGE DETECTION
                     // @param dbName
                     // @param version
                     this.indexedDB.dbOpenAsync("appDB", 1, function () {
-                        // the object stores will be loaded asynchronously
-                        // call getAllRecords asynchronous method
+                        // The object stores will be loaded asynchronously.
+                        // Calls the getAllRecords asynchronous method.
                         // @param storeName
                         _this.indexedDB.getAllRecordsAsync("todoStore", function (result) {
                             result.forEach(function (record) {
-                                // LOAD DATA INTO ENTITIES
-                                _this.indexedDBEntities.getTodo(record); // entities getTodo method
+                                // LOADS DATA INTO ENTITIES
+                                _this.indexedDBEntities.addTodo(record); // Entities getTodo method.
                             });
                         });
-                        // add new call getAllRecords asynchronous method here 
-                    }); // if the db doesn't exist, it will be created
+                        // Add a new call to the getAllRecords asynchronous method here. 
+                    }); // If the db doesn't exist, it will be created.
                 }
                 home = __decorate([
-                    // IndexedDBEntities class & entities
+                    // IndexedDBEntities class & entities.
                     core_1.Component({
                         selector: 'home',
-                        providers: [indexedDB_1.IndexedDB, indexedDBEntities_1.IndexedDBEntities] // IndexedDB & Entities providers: inherited by all descendants
+                        providers: [indexedDB_1.IndexedDB, indexedDBEntities_1.IndexedDBEntities] // IndexedDB & Entities providers: inherited by all descendants.
                     }),
                     core_1.View({
                         templateUrl: './components/home/home.html',

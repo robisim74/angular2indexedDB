@@ -1,7 +1,7 @@
 /**
  * ANGULAR 2 INDEXEDDB
- * indexedDB with entities in the new angular 2 applications using typescript
- * written by roberto simonetti
+ * IndexedDB with entities in the new Angular 2 applications using TypeScript
+ * written by Roberto Simonetti
  * MIT license
  * https://github.com/robisim74/angular2indexedDB
  */
@@ -27,65 +27,63 @@ System.register(['angular2/core', './objectStores'], function(exports_1) {
             }],
         execute: function() {
             /**
-             * IndexedDB class
-             * db operations
+             * IndexedDB class: db operations.
              *
-             * @author roberto simonetti
+             * @author Roberto Simonetti
              */
             IndexedDB = (function () {
                 function IndexedDB() {
                 }
                 /**
-                 * open the database
+                 * Open the database.
                  *
                  * @param dbName
                  * @param version
                  */
                 IndexedDB.prototype.dbOpenAsync = function (dbName, version, callback) {
                     var _this = this;
-                    // specify name and version
+                    // Specifies name and version.
                     var request = indexedDB.open(dbName, version);
-                    // success
+                    // Success.
                     request.onsuccess = function (event) {
                         _this.db = event.target.result;
                         console.log("dbOpen:", event.target.readyState);
                         callback();
                     };
-                    // error
+                    // Error.
                     request.onerror = function (event) {
                         console.error("dbOpen:", event.target.error.name);
                     };
                     request.onupgradeneeded = function (event) {
-                        // the db doesn't exist, so crete object stores
+                        // The db doesn't exist, so crete the object stores.
                         _this.db = event.target.result;
                         ;
-                        // instantiate Object Stores class
-                        // and call create stores method
+                        // Instantiates the ObjectStores class and call the createStores method.
                         var objectStores = new objectStores_1.ObjectStores();
                         objectStores.createStores(_this.db);
                     };
                 };
                 /**
-                 * get object store
+                 * Gets the object store.
                  *
                  * @param name
                  * @param mode
-                 * @return the object store
+                 * @return The object store
                  */
                 IndexedDB.prototype.getObjectStore = function (name, mode) {
                     var tx = this.db.transaction(name, mode);
                     return tx.objectStore(name);
                 };
                 /**
-                 * get all records
+                 * Gets all records.
                  *
-                 * @param storeName the object store name
+                 * @param storeName The object store name
                  */
                 IndexedDB.prototype.getAllRecordsAsync = function (storeName, callback) {
-                    var result = []; // return records into an array
-                    var store = this.getObjectStore(storeName, "readonly"); // get store
+                    var result = []; // Return the records into an array.
+                    var store = this.getObjectStore(storeName, "readonly"); // Gets the store.
                     var request = store.openCursor();
-                    // success
+                    // Success.
                     request.onsuccess = function (event) {
                         var cursor = event.target.result;
                         if (cursor) {
@@ -94,81 +92,81 @@ System.register(['angular2/core', './objectStores'], function(exports_1) {
                         }
                         else {
                             console.log("getAllRecords:", event.target.readyState);
-                            callback(result); // on success, call callback and pass result
+                            callback(result); // On success, calls callback and pass result.
                         }
                     };
-                    // error
+                    // Error.
                     request.onerror = function (event) {
                         console.error("getAllRecords:", event.target.error.name);
                     };
                 };
                 /**
-                 * add a record
+                 * Adds a record.
                  *
-                 * @param storeName the object store name
-                 * @param record the record to add
+                 * @param storeName The object store name
+                 * @param record The record to add
                  */
                 IndexedDB.prototype.addRecordAsync = function (storeName, record) {
-                    var store = this.getObjectStore(storeName, "readwrite"); // get store
-                    var request = store.add(record); // add a new record
-                    // success
+                    var store = this.getObjectStore(storeName, "readwrite"); // Gets the store.
+                    var request = store.add(record); // Adds a new record.
+                    // Success.
                     request.onsuccess = function (event) {
                         console.log("addRecord:", event.target.readyState);
                     };
-                    // error
+                    // Error.
                     request.onerror = function (event) {
                         console.error("addRecord:", event.target.error.name);
                     };
                 };
                 /**
-                 * delete a record
+                 * Deletes a record.
                  *
-                 * @param storeName the object store name
-                 * @param key the key of the record to delete
+                 * @param storeName The object store name
+                 * @param key The key of the record to delete
                  */
                 IndexedDB.prototype.deleteRecordAsync = function (storeName, key) {
-                    var store = this.getObjectStore(storeName, "readwrite"); // get store
-                    var request = store.delete(key); // delete record by key
-                    // success
+                    var store = this.getObjectStore(storeName, "readwrite"); // Gets the store.
+                    var request = store.delete(key); // Deletes the record by the key.
+                    // Success.
                     request.onsuccess = function (event) {
                         console.log("deleteRecord:", event.target.readyState);
                     };
-                    // error
+                    // Error.
                     request.onerror = function (event) {
                         console.error("deleteRecord:", event.target.error.name);
                     };
                 };
                 /**
-                 * edit a record
+                 * Edits a record.
                  *
-                 * @param storeName the object store name
-                 * @param record the record to update
+                 * @param storeName The object store name
+                 * @param record The record to update
                  */
                 IndexedDB.prototype.editRecordAsync = function (storeName, record) {
-                    var store = this.getObjectStore(storeName, "readwrite"); // get store
-                    var request = store.put(record); // put updated record back into the database
-                    // success
+                    var store = this.getObjectStore(storeName, "readwrite"); // Gets the store.
+                    var request = store.put(record); // Puts the updated record back into the database.
+                    // Success.
                     request.onsuccess = function (event) {
                         console.log("editRecord:", event.target.readyState);
                     };
-                    // error
+                    // Error.
                     request.onerror = function (event) {
                         console.error("editRecord:", event.target.error.name);
                     };
                 };
                 /**
-                 * clear an object store
+                 * Clears an object store.
                  *
-                 * @param storeName the object store name
+                 * @param storeName The object store name
                  */
                 IndexedDB.prototype.clearObjectStoreAsync = function (storeName) {
-                    var store = this.getObjectStore(storeName, "readwrite"); // get store
-                    var request = store.clear(); // clear object store
-                    // success
+                    var store = this.getObjectStore(storeName, "readwrite"); // Gets the store.
+                    var request = store.clear(); // Clears the object store.
+                    // Success.
                     request.onsuccess = function (event) {
                         console.log("clearObjectStore:", event.target.readyState);
                     };
-                    // error
+                    // Error.
                     request.onerror = function (event) {
                         console.error("clearObjectStore:", event.target.error.name);
                     };
