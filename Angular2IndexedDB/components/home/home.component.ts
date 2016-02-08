@@ -1,21 +1,22 @@
 ﻿import {Component, View} from 'angular2/core';
 
-import {todo} from '../todo/todo';
+import {TodoComponent} from '../todo/todo.component';
 
 // Services.
 import {IndexedDB} from '../../services/indexedDB'; // IndexedDB class.
-import {IndexedDBEntities, Todo} from '../../services/indexedDBEntities'; // IndexedDBEntities class & entities.
+// Models.
+import {IndexedDBEntities, Todo} from '../../models/indexedDBEntities'; // IndexedDBEntities class & entities.
 
 @Component({
-    selector: 'home',
+    selector: 'home-component',
     providers: [IndexedDB, IndexedDBEntities] // IndexedDB & Entities providers: inherited by all descendants.
 })
 @View({
-    templateUrl: './components/home/home.html',
-    directives: [todo]
+    templateUrl: './components/home/home.component.html',
+    directives: [TodoComponent]
 })
 
-export class home {
+export class HomeComponent {
 
     constructor(public indexedDB: IndexedDB, public indexedDBEntities: IndexedDBEntities) { // Injects the instances of IndexedDB & Entities in the constructor.
 

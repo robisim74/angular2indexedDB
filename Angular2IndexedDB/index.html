@@ -32,18 +32,18 @@
 <!--displays the application-->
 <body>
 
-    <app></app>
+    <app-component></app-component>
 
     <script>
         // bootstraps the Angular 2 application
-        System.import('app')
+        System.import('app.component')
             .then(null, console.error.bind(console));
     </script>
 
     <!--scripts-->
     <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <!-- add full IndexedDB support to any web browser that supports WebSQL-->
+    <!--add full IndexedDB support to any web browser that supports WebSQL-->
     <script src="bower_components/IndexedDBShim/dist/indexeddbshim.min.js"></script>
 
 </body>

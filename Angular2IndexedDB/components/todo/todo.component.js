@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../services/indexedDB', '../../services/indexedDBEntities'], function(exports_1) {
+System.register(['angular2/core', '../../services/indexedDB', '../../models/indexedDBEntities'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,7 +9,7 @@ System.register(['angular2/core', '../../services/indexedDB', '../../services/in
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, indexedDB_1, indexedDBEntities_1;
-    var todo;
+    var TodoComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -22,17 +22,17 @@ System.register(['angular2/core', '../../services/indexedDB', '../../services/in
                 indexedDBEntities_1 = indexedDBEntities_1_1;
             }],
         execute: function() {
-            todo = (function () {
-                function todo(indexedDB, indexedDBEntities) {
+            TodoComponent = (function () {
+                function TodoComponent(indexedDB, indexedDBEntities) {
                     this.indexedDB = indexedDB;
                     this.indexedDBEntities = indexedDBEntities;
                 }
                 // List of the todos.
-                todo.prototype.todos = function () {
+                TodoComponent.prototype.todos = function () {
                     return this.indexedDBEntities.todos;
                 };
                 // Adds a todo.
-                todo.prototype.addTodo = function (description) {
+                TodoComponent.prototype.addTodo = function (description) {
                     // UPDATES INDEXEDDB ASYNCHRONOUSLY
                     // record: key & value of the object store.
                     var record = new indexedDBEntities_1.Todo();
@@ -46,7 +46,7 @@ System.register(['angular2/core', '../../services/indexedDB', '../../services/in
                     this.indexedDBEntities.addTodo(record); // Entities addTodo method.
                 };
                 // Deletes a todo.
-                todo.prototype.deleteTodo = function (record) {
+                TodoComponent.prototype.deleteTodo = function (record) {
                     // UPDATES INDEXEDDB ASYNCHRONOUSLY
                     var key = record.todoId;
                     // Calls the deleteRecord asynchronous method.
@@ -57,7 +57,7 @@ System.register(['angular2/core', '../../services/indexedDB', '../../services/in
                     this.indexedDBEntities.deleteTodo(record); // Entities deleteTodo method.
                 };
                 // Edits a todo.
-                todo.prototype.editTodo = function (record) {
+                TodoComponent.prototype.editTodo = function (record) {
                     // UPDATES INDEXEDDB ASYNCHRONOUSLY 
                     // Calls the editRecord asynchronous method.
                     // @param storeName
@@ -67,7 +67,7 @@ System.register(['angular2/core', '../../services/indexedDB', '../../services/in
                     this.indexedDBEntities.editTodo(record); // Entities editTodo method.
                 };
                 // Clears the todos.
-                todo.prototype.clearTodos = function () {
+                TodoComponent.prototype.clearTodos = function () {
                     // UPDATES INDEXEDDB ASYNCHRONOUSLY     
                     // Calls the clearObjectStore asynchronous method.
                     // @param storeName
@@ -75,19 +75,19 @@ System.register(['angular2/core', '../../services/indexedDB', '../../services/in
                     // UPDATES ENTITIES NOW       
                     this.indexedDBEntities.clearTodos(); // Entities clearTodos method.
                 };
-                todo = __decorate([
+                TodoComponent = __decorate([
                     // IndexedDBEntities class & entities.
                     core_1.Component({
-                        selector: 'todo'
+                        selector: 'todo-component'
                     }),
                     core_1.View({
-                        templateUrl: './components/todo/todo.html'
+                        templateUrl: './components/todo/todo.component.html'
                     }), 
                     __metadata('design:paramtypes', [indexedDB_1.IndexedDB, indexedDBEntities_1.IndexedDBEntities])
-                ], todo);
-                return todo;
+                ], TodoComponent);
+                return TodoComponent;
             })();
-            exports_1("todo", todo);
+            exports_1("TodoComponent", TodoComponent);
         }
     }
 });

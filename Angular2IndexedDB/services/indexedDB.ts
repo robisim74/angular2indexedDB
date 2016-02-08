@@ -8,7 +8,7 @@
 
 import {Injectable} from 'angular2/core';
 
-import {ObjectStores} from './objectStores';
+import {ObjectStores} from '../models/objectStores';
 
 /**
  * IndexedDB class: db operations.

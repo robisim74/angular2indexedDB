@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../todo/todo', '../../services/indexedDB', '../../services/indexedDBEntities'], function(exports_1) {
+System.register(['angular2/core', '../todo/todo.component', '../../services/indexedDB', '../../models/indexedDBEntities'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,15 +8,15 @@ System.register(['angular2/core', '../todo/todo', '../../services/indexedDB', '.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, todo_1, indexedDB_1, indexedDBEntities_1;
-    var home;
+    var core_1, todo_component_1, indexedDB_1, indexedDBEntities_1;
+    var HomeComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (todo_1_1) {
-                todo_1 = todo_1_1;
+            function (todo_component_1_1) {
+                todo_component_1 = todo_component_1_1;
             },
             function (indexedDB_1_1) {
                 indexedDB_1 = indexedDB_1_1;
@@ -25,8 +25,8 @@ System.register(['angular2/core', '../todo/todo', '../../services/indexedDB', '.
                 indexedDBEntities_1 = indexedDBEntities_1_1;
             }],
         execute: function() {
-            home = (function () {
-                function home(indexedDB, indexedDBEntities) {
+            HomeComponent = (function () {
+                function HomeComponent(indexedDB, indexedDBEntities) {
                     var _this = this;
                     this.indexedDB = indexedDB;
                     this.indexedDBEntities = indexedDBEntities;
@@ -47,21 +47,21 @@ System.register(['angular2/core', '../todo/todo', '../../services/indexedDB', '.
                         // Add a new call to the getAllRecords asynchronous method here. 
                     }); // If the db doesn't exist, it will be created.
                 }
-                home = __decorate([
+                HomeComponent = __decorate([
                     // IndexedDBEntities class & entities.
                     core_1.Component({
-                        selector: 'home',
+                        selector: 'home-component',
                         providers: [indexedDB_1.IndexedDB, indexedDBEntities_1.IndexedDBEntities] // IndexedDB & Entities providers: inherited by all descendants.
                     }),
                     core_1.View({
-                        templateUrl: './components/home/home.html',
-                        directives: [todo_1.todo]
+                        templateUrl: './components/home/home.component.html',
+                        directives: [todo_component_1.TodoComponent]
                     }), 
                     __metadata('design:paramtypes', [indexedDB_1.IndexedDB, indexedDBEntities_1.IndexedDBEntities])
-                ], home);
-                return home;
+                ], HomeComponent);
+                return HomeComponent;
             })();
-            exports_1("home", home);
+            exports_1("HomeComponent", HomeComponent);
         }
     }
 });

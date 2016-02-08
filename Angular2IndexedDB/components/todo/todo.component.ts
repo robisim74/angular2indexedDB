@@ -2,16 +2,17 @@ import {Component, View} from 'angular2/core';
 
 // Services.
 import {IndexedDB} from '../../services/indexedDB'; // IndexedDB class.
-import {IndexedDBEntities, Todo} from '../../services/indexedDBEntities'; // IndexedDBEntities class & entities.
+// Models.
+import {IndexedDBEntities, Todo} from '../../models/indexedDBEntities'; // IndexedDBEntities class & entities.
 
 @Component({
-    selector: 'todo'
+    selector: 'todo-component'
 })
 @View({
-    templateUrl: './components/todo/todo.html'
+    templateUrl: './components/todo/todo.component.html'
 })
 
-export class todo {
+export class TodoComponent {
 
     constructor(public indexedDB: IndexedDB, public indexedDBEntities: IndexedDBEntities) { // Injects the instances of IndexedDB & Entities in the constructor.
     }
