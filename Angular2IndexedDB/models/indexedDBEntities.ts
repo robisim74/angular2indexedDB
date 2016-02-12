@@ -1,6 +1,6 @@
 /**
  * ANGULAR 2 INDEXEDDB
- * IndexedDB with entities in the new Angular 2 applications using TypeScript
+ * IndexedDB with Entities in the new Angular 2 applications using TypeScript
  * written by Roberto Simonetti
  * MIT license
  * https://github.com/robisim74/angular2indexedDB

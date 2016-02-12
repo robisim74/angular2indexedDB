@@ -1,12 +1,12 @@
 # Angular 2 IndexedDB
-> IndexedDB with entities in the new Angular 2 apps using TypeScript.
+> IndexedDB with Entities in the new Angular 2 apps using TypeScript.
 
 ## The logic of IndexedDB with Entities
 The operations performed using IndexedDB are done asynchronously, so as not to block the rest of an application running. Well. But if we don't insert the data that we read directly into the DOM, just as in the Angular 2 applications, we have a problem: the data are not ready to be rendered by the view when we read or update them.
 To solve this problem, we look at the diagram below:
 ![IndexedDBwithEntities](https://github.com/robisim74/angular2indexedDB/blob/master/IndexedDBwithEntities.jpg)
 In the class `IndexedDB` there are the methods to retrieve and modify asynchronously the data into object stores: this methods are standard.
-The class `IndexedDB Entities` defines every object store entity, as for example:
+The class `IndexedDBEntities` defines every object store entity, as for example:
 ```TypeScript
 // EXAMPLE TODO
 export class Todo {
