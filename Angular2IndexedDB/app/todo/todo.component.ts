@@ -9,7 +9,7 @@ import {IndexedDBEntities, Todo} from '../../models/indexedDBEntities'; // Index
     selector: 'todo-component'
 })
 @View({
-    templateUrl: './components/todo/todo.component.html'
+    templateUrl: './app/todo/todo.component.html'
 })
 
 export class TodoComponent {

@@ -81,7 +81,7 @@ System.register(['angular2/core', '../../services/indexedDB', '../../models/inde
                         selector: 'todo-component'
                     }),
                     core_1.View({
-                        templateUrl: './components/todo/todo.component.html'
+                        templateUrl: './app/todo/todo.component.html'
                     }), 
                     __metadata('design:paramtypes', [indexedDB_1.IndexedDB, indexedDBEntities_1.IndexedDBEntities])
                 ], TodoComponent);

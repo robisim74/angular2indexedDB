@@ -12,7 +12,7 @@ import {IndexedDBEntities, Todo} from '../../models/indexedDBEntities'; // Index
     providers: [IndexedDB, IndexedDBEntities] // IndexedDB & Entities providers: inherited by all descendants.
 })
 @View({
-    templateUrl: './components/home/home.component.html',
+    templateUrl: './app/home/home.component.html',
     directives: [TodoComponent]
 })
 

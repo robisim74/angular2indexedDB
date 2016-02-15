@@ -1,5 +1,4 @@
-///<reference path="node_modules/angular2/typings/browser.d.ts"/>
-System.register(['angular2/core', 'angular2/platform/browser', './components/home/home.component'], function(exports_1) {
+System.register(['angular2/core', './home/home.component'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,15 +8,12 @@ System.register(['angular2/core', 'angular2/platform/browser', './components/hom
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, browser_1, home_component_1;
+    var core_1, home_component_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (browser_1_1) {
-                browser_1 = browser_1_1;
             },
             function (home_component_1_1) {
                 home_component_1 = home_component_1_1;
@@ -31,14 +27,14 @@ System.register(['angular2/core', 'angular2/platform/browser', './components/hom
                         selector: 'app-component'
                     }),
                     core_1.View({
-                        templateUrl: './app.component.html',
+                        templateUrl: './app/app.component.html',
                         directives: [home_component_1.HomeComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
             })();
-            browser_1.bootstrap(AppComponent);
+            exports_1("AppComponent", AppComponent);
         }
     }
 });

@@ -54,7 +54,7 @@ System.register(['angular2/core', '../todo/todo.component', '../../services/inde
                         providers: [indexedDB_1.IndexedDB, indexedDBEntities_1.IndexedDBEntities] // IndexedDB & Entities providers: inherited by all descendants.
                     }),
                     core_1.View({
-                        templateUrl: './components/home/home.component.html',
+                        templateUrl: './app/home/home.component.html',
                         directives: [todo_component_1.TodoComponent]
                     }), 
                     __metadata('design:paramtypes', [indexedDB_1.IndexedDB, indexedDBEntities_1.IndexedDBEntities])
