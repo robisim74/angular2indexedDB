@@ -1,45 +1,108 @@
 # Angular 2 IndexedDB
-> IndexedDB with Entities in the new Angular 2 apps using TypeScript.
+> IndexedDB in the new Angular 2 applications using TypeScript.
 
-## The logic of IndexedDB with Entities
-The operations performed using IndexedDB are done asynchronously, so as not to block the rest of an application running. Well. But if we don't insert the data that we read directly into the DOM, just as in the Angular 2 applications, we have a problem: the data are not ready to be rendered by the view when we read or update them.
-To solve this problem, we look at the diagram below:
-![IndexedDBwithEntities](https://github.com/robisim74/angular2indexedDB/blob/master/IndexedDBwithEntities.jpg)
-In the class `IndexedDB` there are the methods to retrieve and modify asynchronously the data into object stores: this methods are standard.
-The class `IndexedDBEntities` defines every object store entity, as for example:
-```TypeScript
-// EXAMPLE TODO
-export class Todo {
-    todoId: number; // Key.
-    // Value {}.
-    description: string;
-}
-...
-todos: Array<Todo> = []; // Todos entity.
-```
-and the own methods to work with the entity, like the addition of an element:
-```TypeScript
-// Adds a todo.
-addTodo(record: Todo) {
-    this.todos.push(record);
-}
-```
-When there is a request, for example the addition of an element, the component calls the asynchronous method of adding an element to the object store, but also calls the same method of adding an element to the entity.
-This latter is performed immediately, and can be rendered by the view, while the asynchronous method completes meantime its execution, which will be available at the next event. 
-Therefore with the entities we work to a level of abstraction higher, with the data immediately available while the read-write transactions occur on the db.
+## Sample application
+Sample application that uses an `Entity` model to work asynchronously: [demo](http://robisim74.github.io/angular2indexedDB)
 
-## Running the sample app
-What you need to run this app:
+## Basic usage
+Include in your application:
+* the `indexedDB` service;
+* the `object-store` model;
+
+and register `IndexedDBService` in your component:
+```TypeScript
+// Services.
+import {IndexedDBService} from './services/indexedDB.service'; // IndexedDBService class.
+
+@Component({
+    selector: 'app-component',
+    ...
+    providers: [IndexedDBService]
+})
+
+export class AppComponent {
+
+    constructor(public indexedDB: IndexedDBService) { }
+     
+}
+```
+In the `object-store` model, add the object stores:
+```TypeScript
+createStores(db: IDBDatabase) {
+
+    // Creates "TodoStore".
+    var todoStore: IDBObjectStore = db.createObjectStore("TodoStore", { keyPath: 'todoId' });
+    // Add new stores here.
+       
+}
+```
+
+### IndexedDBService methods
+Each method can be invoked with the `forEach` method, which accepts a single callback and returns a promise: 
+```TypeScript
+// Opens the database.
+this.indexedDB.openDBAsync(dbName, 1).forEach(
+                   
+    // Next.
+    (readyState: string) => {
+
+        console.log('IndexedDB service: opening db: ' + readyState);
+
+    }, null
+
+);
+```
+
+## The sample application
+The sample application implements a simple todos list using an `Entity` model to work asyncronously:
+![IndexedDBwithEntities](https://github.com/robisim74/angular2indexedDB/blob/master/IndexedDBEntities.jpg)
+Plus:
+* the service requires only the basic methods: other methods that don't affect the db can be easily implemented and customized on the entity.
+* higher speed of execution, as in this example:
+```TypeScript
+// Edits a todo.
+editTodo(record: Todo) {
+    
+    // Edits the record with the UTC timestamp.
+    console.log("Start editing db: " + Date.now() + " milliseconds.");
+    this.indexedDB.editRecordAsync("TodoStore", record).forEach(
+        
+        // Next.
+        (readyState) => { console.log('IndexedDB service: editing record: ' + readyState); }, null
+
+    ).then(() => console.log("End editing db: " + Date.now() + " milliseconds."));
+    
+    // Updates the entity. 
+    console.log("Start editing entity: " + Date.now() + " milliseconds.");
+    this.entity.editTodo(record);
+    console.log("End editing entity: " + Date.now() + " milliseconds.");
+
+}
+```
+With only three records, the result is the following:
+```
+Start editing db: 1456475260237 milliseconds.
+Start editing entity: 1456475260237 milliseconds.
+End editing entity: 1456475260238 milliseconds.
+IndexedDB service: editing record: done
+End editing db: 1456475260245 milliseconds.
+```
+The update of the record on the db takes about 8 milliseconds, and can continue during the update of the entity which instead lasts a millisecond.
+
+### Running the sample app
+What you need to run the sample app:
 - this repository
-- [Node and npm](https://nodejs.org), [Bower](http://bower.io/) already installed
+- [Node and npm](https://nodejs.org), [Bower](http://bower.io/) already installed.
 
-In the command-prompt, go to the directory that contains `index.html`:
+In the command line, go to the directory that contains `index.html`:
 ```
 npm install
-
 bower install
-
-npm install -g http-server
-http-server
+gulp
 ```
-and then in a browser, visit `localhost:8080/index.html`.
+You need a static server as [lite-server](https://github.com/johnpapa/lite-server):
+```
+npm install -g lite-server
+lite-server
+```
+and then in a browser visit `localhost:3000/index.html`.

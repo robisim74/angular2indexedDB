@@ -1,0 +1,70 @@
+<!--todo component view-->
+
+<div class="container">
+
+    <h2>todos list</h2>
+
+    <hr>
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>id</td>
+                        <td>description</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--the async pipe subscribes to an observable and returns the latest value it has emitted-->
+                    <tr *ngFor="#todo of todos | async">
+                        <td>{{ todo.todoId }}</td>
+                        <td *ngIf="editMode != todo.todoId">
+                            {{ todo.description }}
+                        </td>
+                        <td *ngIf="editMode != todo.todoId">
+                            <button class="btn btn-primary btn-sm" (click)="deleteTodo(todo)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                        </td>
+                        <td *ngIf="editMode != todo.todoId">
+                            <button class="btn btn-primary btn-sm" (click)="editMode = todo.todoId"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+                        </td>
+                        <td *ngIf="editMode == todo.todoId">
+                            <input [(ngModel)]="todo.description" type="text" class="form-control" id="edit-description">
+                        </td>
+                        <td *ngIf="editMode == todo.todoId">
+                            <button class="btn btn-primary btn-sm" (click)="editTodo(todo); editMode = null">save</button>
+                        </td>
+                        <td *ngIf="editMode == todo.todoId">
+                            <button class="btn btn-default btn-sm" (click)="editMode = null">cancel</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="text-right">
+                <button type="button" class="btn btn-default" (click)="clearTodos()">clear todos</button>
+                <button type="button" class="btn btn-primary" (click)="sortTodos()">sort by description</button>
+            </div>
+
+            <hr />
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label for="input-description">description</label>
+                <input [(ngModel)]="description" (keyup.enter)="addTodo(description)" type="text" class="form-control" id="input-description"
+                placeholder="description">
+            </div>
+            <button type="button" class="btn btn-default btn-block" (click)="addTodo(description)">add todo</button>
+
+        </div>
+
+    </div>
+
+</div>
