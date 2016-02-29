@@ -38,7 +38,7 @@ System.register(['angular2/core'], function(exports_1) {
                 /**
                  * Adds a todo.
                  *
-                 * @param record
+                 * @params record
                  */
                 Entity.prototype.addTodo = function (record) {
                     this.todos.push(record);
@@ -46,7 +46,7 @@ System.register(['angular2/core'], function(exports_1) {
                 /**
                  * Deletes a todo.
                  *
-                 * @param record
+                 * @params record
                  */
                 Entity.prototype.deleteTodo = function (record) {
                     var index = this.todos.indexOf(record);
@@ -55,7 +55,7 @@ System.register(['angular2/core'], function(exports_1) {
                 /**
                  * Edits a todo.
                  *
-                 * @param record
+                 * @params record
                  */
                 Entity.prototype.editTodo = function (record) {
                     var index = this.todos.indexOf(record);

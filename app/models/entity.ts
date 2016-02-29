@@ -29,7 +29,7 @@ export class Todo {
     /**
      * Adds a todo.
      * 
-     * @param record
+     * @params record
      */
     addTodo(record: Todo) {
 
@@ -40,7 +40,7 @@ export class Todo {
     /**
      * Deletes a todo.
      * 
-     * @param record
+     * @params record
      */
     deleteTodo(record: Todo) {
 
@@ -52,7 +52,7 @@ export class Todo {
     /**
      * Edits a todo.
      * 
-     * @param record
+     * @params record
      */
     editTodo(record: Todo) {
 
@@ -104,12 +104,3 @@ export class Todo {
     }
 
 }
-
-// Declares UUID interface.
-interface UUID {
-
-    v4: { (): string };
-
-}
-
-declare var uuid: UUID;

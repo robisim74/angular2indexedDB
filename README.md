@@ -57,7 +57,7 @@ this.indexedDB.openDBAsync(dbName, 1).forEach(
 The sample application implements a simple todos list using an `Entity` model to work asyncronously:
 ![IndexedDBwithEntities](https://github.com/robisim74/angular2indexedDB/blob/master/IndexedDBEntity.jpg)
 Plus:
-* the service requires only the basic methods: other methods that don't affect the db can be easily implemented and customized on the entity.
+* the service requires only the basic methods: other methods that don't affect the db can be easily implemented and customized on the entity;
 * higher speed of execution, as in this example:
 ```TypeScript
 // Edits a todo.
@@ -92,12 +92,13 @@ The update of the record on the db takes about 8 milliseconds, and can continue 
 ### Running the sample app
 What you need to run the sample app:
 - this repository
-- [Node and npm](https://nodejs.org), [Bower](http://bower.io/) already installed.
+- [Node and npm](https://nodejs.org), [Bower](http://bower.io/), [tsd](http://definitelytyped.org/) already installed.
 
 In the command line, go to the directory that contains `index.html`:
 ```
 npm install
 bower install
+tsd install
 gulp
 ```
 You need a static server as [lite-server](https://github.com/johnpapa/lite-server):

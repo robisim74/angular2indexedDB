@@ -84,8 +84,8 @@ System.register(['angular2/core', 'rxjs/Observable', '../models/object-store'], 
                 /**
                  * Opens the database.
                  *
-                 * @param dbName The name of the database which identifies it within a specific origin
-                 * @param version The version of the database
+                 * @params dbName The name of the database which identifies it within a specific origin
+                 * @params version The version of the database
                  * @return An observable of readyState
                  */
                 IndexedDBService.prototype.openDBAsync = function (dbName, version) {
@@ -120,8 +120,8 @@ System.register(['angular2/core', 'rxjs/Observable', '../models/object-store'], 
                 /**
                  * Gets the object store.
                  *
-                 * @param storeName The name of the object store
-                 * @param mode Transaction mode
+                 * @params storeName The name of the object store
+                 * @params mode Transaction mode
                  * @return The object store
                  */
                 IndexedDBService.prototype.getObjectStore = function (storeName, mode) {
@@ -131,7 +131,7 @@ System.register(['angular2/core', 'rxjs/Observable', '../models/object-store'], 
                 /**
                  * Gets all records.
                  *
-                 * @param storeName The name of the object store
+                 * @params storeName The name of the object store
                  * @return An observable of record
                  */
                 IndexedDBService.prototype.getAllRecordsAsync = function (storeName) {
@@ -161,8 +161,8 @@ System.register(['angular2/core', 'rxjs/Observable', '../models/object-store'], 
                 /**
                  * Adds a record.
                  *
-                 * @param storeName The name of the object store
-                 * @param record The record to add
+                 * @params storeName The name of the object store
+                 * @params record The record to add
                  * @return An observable of readyState
                  */
                 IndexedDBService.prototype.addRecordAsync = function (storeName, record) {
@@ -185,8 +185,8 @@ System.register(['angular2/core', 'rxjs/Observable', '../models/object-store'], 
                 /**
                  * Deletes a record.
                  *
-                 * @param storeName The name of the object store
-                 * @param key The key of the record to delete
+                 * @params storeName The name of the object store
+                 * @params key The key of the record to delete
                  * @return An observable of readyState
                  */
                 IndexedDBService.prototype.deleteRecordAsync = function (storeName, key) {
@@ -209,8 +209,8 @@ System.register(['angular2/core', 'rxjs/Observable', '../models/object-store'], 
                 /**
                  * Edits a record.
                  *
-                 * @param storeName The name of the object store
-                 * @param record The record to update
+                 * @params storeName The name of the object store
+                 * @params record The record to update
                  * @return An observable of readyState
                  */
                 IndexedDBService.prototype.editRecordAsync = function (storeName, record) {
@@ -233,7 +233,7 @@ System.register(['angular2/core', 'rxjs/Observable', '../models/object-store'], 
                 /**
                  * Clears an object store.
                  *
-                 * @param storeName The name of the object store
+                 * @params storeName The name of the object store
                  * @return An observable of readyState
                  */
                 IndexedDBService.prototype.clearObjectStoreAsync = function (storeName) {
