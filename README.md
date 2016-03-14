@@ -55,7 +55,7 @@ this.indexedDB.openDBAsync(dbName, 1).forEach(
 
 ## The sample application
 The sample application implements a simple todos list using an `Entity` model to work asyncronously:
-![IndexedDBwithEntities](https://github.com/robisim74/angular2indexedDB/blob/master/IndexedDBEntity.jpg)
+![IndexedDBEntity](https://github.com/robisim74/angular2indexedDB/blob/master/IndexedDBEntity.jpg)
 Plus:
 * the service requires only the basic methods: other methods that don't affect the db can be easily implemented and customized on the entity;
 * higher speed of execution, as in this example:

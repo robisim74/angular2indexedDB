@@ -1,34 +1,34 @@
 {
-  "name": "angular2indexedDB",
-  "version": "1.0.0",
-  "description": "IndexedDB in the new Angular 2 applications using TypeScript",
-  "main": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "Roberto Simonetti",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/robisim74/angular2indexedDB.git"
-  },
-  "bugs": {
-    "url": "https://github.com/robisim74/angular2indexedDB/issues"
-  },
-  "homepage": "https://github.com/robisim74/angular2indexedDB",
-  "dependencies": {
-    "angular2": "2.0.0-beta.7",
-    "es6-promise": "^3.0.2",
-    "es6-shim": "^0.33.3",
-    "node-uuid": "^1.4.7",
-    "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.2",
-    "systemjs": "0.19.22",
-    "zone.js": "0.5.15"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "del": "^2.2.0"
-  }
+    "name": "angular2indexedDB",
+    "version": "1.0.0",
+    "description": "IndexedDB in the new Angular 2 applications using TypeScript",
+    "main": "",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Roberto Simonetti",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/robisim74/angular2indexedDB.git"
+    },
+    "bugs": {
+        "url": "https://github.com/robisim74/angular2indexedDB/issues"
+    },
+    "homepage": "https://github.com/robisim74/angular2indexedDB",
+    "dependencies": {
+        "angular2": "2.0.0-beta.9",
+        "systemjs": "0.19.24",
+        "es6-promise": "^3.0.2",
+        "es6-shim": "^0.33.3",
+        "reflect-metadata": "0.1.2",
+        "rxjs": "5.0.0-beta.2",
+        "zone.js": "0.5.15",
+        "node-uuid": "^1.4.7"
+    },
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "del": "^2.2.0"
+    }
 }
