@@ -5,7 +5,9 @@
  * MIT license
  * https://github.com/robisim74/angular2indexedDB
  */
-System.register([], function(exports_1) {
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var ObjectStore;
     return {
         setters:[],
@@ -26,7 +28,7 @@ System.register([], function(exports_1) {
                  * The object store has a list of records which hold the data stored in the object store.
                  * Each record consists of a key and a value.
                  *
-                 * @params db The database
+                 * @param db The database
                  */
                 ObjectStore.prototype.createStores = function (db) {
                     // Creates "TodoStore".
@@ -34,7 +36,7 @@ System.register([], function(exports_1) {
                     // Add new stores here.
                 };
                 return ObjectStore;
-            })();
+            }());
             exports_1("ObjectStore", ObjectStore);
         }
     }

@@ -21,7 +21,7 @@ export class ObjectStore {
      * The object store has a list of records which hold the data stored in the object store.
      * Each record consists of a key and a value.
      * 
-     * @params db The database
+     * @param db The database
      */
     createStores(db: IDBDatabase) {
 

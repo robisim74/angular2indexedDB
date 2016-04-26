@@ -29,7 +29,7 @@ export class Todo {
     /**
      * Adds a todo.
      * 
-     * @params record
+     * @param record
      */
     addTodo(record: Todo) {
 
@@ -40,7 +40,7 @@ export class Todo {
     /**
      * Deletes a todo.
      * 
-     * @params record
+     * @param record
      */
     deleteTodo(record: Todo) {
 
@@ -52,7 +52,7 @@ export class Todo {
     /**
      * Edits a todo.
      * 
-     * @params record
+     * @param record
      */
     editTodo(record: Todo) {
 

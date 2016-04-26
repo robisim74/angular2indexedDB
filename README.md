@@ -11,8 +11,7 @@ Include in your application:
 
 and register `IndexedDBService` in your component:
 ```TypeScript
-// Services.
-import {IndexedDBService} from './services/indexedDB.service'; // IndexedDBService class.
+import {IndexedDBService} from './services/indexedDB.service';
 
 @Component({
     selector: 'app-component',

@@ -73,8 +73,8 @@ import {ObjectStore} from '../models/object-store'; // ObjectStore class.
     /**
      * Opens the database.
      * 
-     * @params dbName The name of the database which identifies it within a specific origin
-     * @params version The version of the database
+     * @param dbName The name of the database which identifies it within a specific origin
+     * @param version The version of the database
      * @return An observable of readyState
      */
     openDBAsync(dbName: string, version: number): Observable<string> {
@@ -124,8 +124,8 @@ import {ObjectStore} from '../models/object-store'; // ObjectStore class.
     /**
      * Gets the object store.
      * 
-     * @params storeName The name of the object store
-     * @params mode Transaction mode
+     * @param storeName The name of the object store
+     * @param mode Transaction mode
      * @return The object store
      */
     private getObjectStore(storeName: string, mode: string) {
@@ -138,7 +138,7 @@ import {ObjectStore} from '../models/object-store'; // ObjectStore class.
     /**
      * Gets all records.
      * 
-     * @params storeName The name of the object store
+     * @param storeName The name of the object store
      * @return An observable of record
      */
     getAllRecordsAsync(storeName: string): Observable<any> {
@@ -185,8 +185,8 @@ import {ObjectStore} from '../models/object-store'; // ObjectStore class.
     /**
      * Adds a record.
      * 
-     * @params storeName The name of the object store
-     * @params record The record to add
+     * @param storeName The name of the object store
+     * @param record The record to add
      * @return An observable of readyState
      */
     addRecordAsync(storeName: string, record: any): Observable<string> {
@@ -221,8 +221,8 @@ import {ObjectStore} from '../models/object-store'; // ObjectStore class.
     /**
      * Deletes a record.
      * 
-     * @params storeName The name of the object store
-     * @params key The key of the record to delete
+     * @param storeName The name of the object store
+     * @param key The key of the record to delete
      * @return An observable of readyState
      */
     deleteRecordAsync(storeName: string, key: string): Observable<string> {
@@ -257,8 +257,8 @@ import {ObjectStore} from '../models/object-store'; // ObjectStore class.
     /**
      * Edits a record.
      * 
-     * @params storeName The name of the object store
-     * @params record The record to update
+     * @param storeName The name of the object store
+     * @param record The record to update
      * @return An observable of readyState
      */
     editRecordAsync(storeName: string, record: any): Observable<string> {
@@ -293,7 +293,7 @@ import {ObjectStore} from '../models/object-store'; // ObjectStore class.
     /**
      * Clears an object store.
      * 
-     * @params storeName The name of the object store
+     * @param storeName The name of the object store
      * @return An observable of readyState
      */
     clearObjectStoreAsync(storeName: string): Observable<string> {
