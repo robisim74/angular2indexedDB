@@ -12,13 +12,13 @@
     <!--frameworks-->
     <!--loads Angular 2 libraries-->
     <!--IE required polyfills, in this exact order-->
-    <script src="dist/lib/es6-shim.min.js"></script>
-    <script src="dist/lib/system-polyfills.js"></script>
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
 
-    <script src="dist/lib/angular2-polyfills.js"></script>
-    <script src="dist/lib/system.src.js"></script>
-    <script src="dist/lib/Rx.js"></script>
-    <script src="dist/lib/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
 
     <!--configures SystemJS-->
     <script>
@@ -48,9 +48,9 @@
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!--adds full IndexedDB support to any web browser that supports WebSQL-->
-    <script src="dist/lib/indexeddbshim.min.js"></script>
+    <script src="bower_components/IndexedDBShim/dist/indexeddbshim.min.js"></script>
     <!--generates RFC-compliant UUIDs-->
-    <script src="dist/lib/uuid.js"></script>
+    <script src="node_modules/node-uuid/uuid.js"></script>
 
 </body>
 

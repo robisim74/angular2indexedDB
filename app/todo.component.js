@@ -73,15 +73,12 @@ System.register(['angular2/core', 'rxjs/Observable', './services/indexedDB.servi
                 };
                 // Edits a todo.
                 TodoComponent.prototype.editTodo = function (record) {
-                    // Edits the record with the UTC timestamp.
-                    console.log("Start editing db: " + Date.now() + " milliseconds.");
+                    // Edits the record.
                     this.indexedDB.editRecordAsync("TodoStore", record).forEach(
                     // Next.
-                    function (readyState) { console.log('IndexedDB service: editing record: ' + readyState); }, null).then(function () { return console.log("End editing db: " + Date.now() + " milliseconds."); });
+                    function (readyState) { console.log('IndexedDB service: editing record: ' + readyState); }, null);
                     // Updates the entity. 
-                    console.log("Start editing entity: " + Date.now() + " milliseconds.");
                     this.entity.editTodo(record);
-                    console.log("End editing entity: " + Date.now() + " milliseconds.");
                 };
                 // Clears the todos.
                 TodoComponent.prototype.clearTodos = function () {

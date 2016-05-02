@@ -79,19 +79,16 @@ export class TodoComponent {
     // Edits a todo.
     editTodo(record: Todo) {
         
-        // Edits the record with the UTC timestamp.
-        console.log("Start editing db: " + Date.now() + " milliseconds.");
+        // Edits the record.
         this.indexedDB.editRecordAsync("TodoStore", record).forEach(
             
             // Next.
             (readyState) => { console.log('IndexedDB service: editing record: ' + readyState); }, null
 
-        ).then(() => console.log("End editing db: " + Date.now() + " milliseconds."));
+        );
         
         // Updates the entity. 
-        console.log("Start editing entity: " + Date.now() + " milliseconds.");
         this.entity.editTodo(record);
-        console.log("End editing entity: " + Date.now() + " milliseconds.");
 
     }
     

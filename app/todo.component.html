@@ -2,7 +2,7 @@
 
 <div class="container">
 
-    <h2>todos list</h2>
+    <h2>Todos list</h2>
 
     <hr>
 
@@ -13,15 +13,15 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <td>id</td>
-                        <td>description</td>
+                        <td>Id</td>
+                        <td>Description</td>
                         <td></td>
                         <td></td>
                     </tr>
                 </thead>
                 <tbody>
                     <!--the async pipe subscribes to an observable and returns the latest value it has emitted-->
-                    <tr *ngFor="#todo of todos | async">
+                    <tr *ngFor="let todo of todos | async">
                         <td>{{ todo.todoId }}</td>
                         <td *ngIf="editMode != todo.todoId">
                             {{ todo.description }}
@@ -36,18 +36,18 @@
                             <input [(ngModel)]="todo.description" type="text" class="form-control" id="edit-description">
                         </td>
                         <td *ngIf="editMode == todo.todoId">
-                            <button class="btn btn-primary btn-sm" (click)="editTodo(todo); editMode = null">save</button>
+                            <button class="btn btn-primary btn-sm" (click)="editTodo(todo); editMode = null">Save</button>
                         </td>
                         <td *ngIf="editMode == todo.todoId">
-                            <button class="btn btn-default btn-sm" (click)="editMode = null">cancel</button>
+                            <button class="btn btn-default btn-sm" (click)="editMode = null">Cancel</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="text-right">
-                <button type="button" class="btn btn-default" (click)="clearTodos()">clear todos</button>
-                <button type="button" class="btn btn-primary" (click)="sortTodos()">sort by description</button>
+                <button type="button" class="btn btn-default" (click)="clearTodos()">Clear todos</button>
+                <button type="button" class="btn btn-primary" (click)="sortTodos()">Sort by description</button>
             </div>
 
             <hr />
@@ -57,11 +57,11 @@
         <div class="col-md-6">
 
             <div class="form-group">
-                <label for="input-description">description</label>
+                <label for="input-description">Description</label>
                 <input [(ngModel)]="description" (keyup.enter)="addTodo(description)" type="text" class="form-control" id="input-description"
-                placeholder="description">
+                placeholder="Description">
             </div>
-            <button type="button" class="btn btn-default btn-block" (click)="addTodo(description)">add todo</button>
+            <button type="button" class="btn btn-default btn-block" (click)="addTodo(description)">Add todo</button>
 
         </div>
 
