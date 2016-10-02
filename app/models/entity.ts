@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 
-var uuid: any = require('node_modules/node-uuid/uuid.js');
-
 /**
  * Todo entity.
  */

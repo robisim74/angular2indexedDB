@@ -1,0 +1,9 @@
+{
+  "globalDependencies": {
+    "core-js": "registry:dt/core-js#0.0.0+20160914114559",
+    "node": "registry:dt/node#6.0.0+20160928143418",
+    "node-uuid": "registry:dt/node-uuid#0.0.0+20160316155526",
+    "node-uuid/node-uuid-base": "registry:dt/node-uuid/node-uuid-base#0.0.0+20160316155526",
+    "node-uuid/node-uuid-global": "registry:dt/node-uuid/node-uuid-global#0.0.0+20160316155526"
+  }
+}
