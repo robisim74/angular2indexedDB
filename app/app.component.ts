@@ -1,16 +1,14 @@
-import {Component} from 'angular2/core';
+import { Component } from '@angular/core';
 // Services.
-import {IndexedDBService} from './services/indexedDB.service'; // IndexedDBService class.
+import { IndexedDBService } from './services/indexedDB.service'; // IndexedDBService class.
 // Models.
-import {Entity, Todo} from './models/entity'; // Entity classes.
+import { Entity, Todo } from './models/entity'; // Entity classes.
 // Components.
-import {TodoComponent} from './todo.component';
+import { TodoComponent } from './todo.component';
 
 @Component({
     selector: 'app-component',
-    directives: [TodoComponent],
-    templateUrl: './app/app.component.html',
-    providers: [IndexedDBService, Entity]
+    templateUrl: './app/app.component.html'
 })
 
 export class AppComponent {
@@ -26,7 +24,7 @@ export class AppComponent {
 
         // Opens the database.
         this.indexedDB.openDBAsync(dbName, 1).forEach(
-                           
+
             // Next.
             (readyState: string) => {
 
@@ -36,24 +34,25 @@ export class AppComponent {
 
         ).then(
 
-            () => { 
-                
+            () => {
+
                 // Gets all records from "TodoStore".
                 this.indexedDB.getAllRecordsAsync("TodoStore").forEach(
 
                     // Next.
                     (record: Todo) => {
-                    
+
                         // Adds next record to the Todos entity.
-                        if (record != null){
-                            
+                        if (record != null) {
+
                             this.entity.addTodo(record);
-                        
+
                         }
-                        
+
                     }, null
 
-                ).then(() => console.log('IndexedDB service: obtaining of all records completed.'))}
+                ).then(() => console.log('IndexedDB service: obtaining of all records completed.'))
+            }
 
             );
 

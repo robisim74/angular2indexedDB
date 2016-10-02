@@ -6,11 +6,11 @@
  * https://github.com/robisim74/angular2indexedDB
  */
 
-import {Injectable} from 'angular2/core';
-import {Observer} from 'rxjs/Observer';
-import {Observable} from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { Observer } from 'rxjs/Observer';
+import { Observable } from 'rxjs/Observable';
 // Models.
-import {ObjectStore} from '../models/object-store'; // ObjectStore class.
+import { ObjectStore } from '../models/object-store'; // ObjectStore class.
 
 /**
  * IndexedDBService class: database operations.

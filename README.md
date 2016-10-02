@@ -11,17 +11,11 @@ Plus:
 ## Running the sample app
 What you need to run the sample app:
 - this repository
-- [Node and npm](https://nodejs.org), [Bower](http://bower.io/), [tsd](http://definitelytyped.org/) already installed.
+- `Node and npm` already installed.
 
 In the command line, go to the directory that contains `index.html`:
 ```
 npm install
-bower install
-tsd install
+
+npm start
 ```
-You need a static server as [lite-server](https://github.com/johnpapa/lite-server):
-```
-npm install -g lite-server
-lite-server
-```
-and then in a browser visit `localhost:3000/index.html`.

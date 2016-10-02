@@ -1,15 +1,17 @@
-import {Injectable} from 'angular2/core';
+import { Injectable } from '@angular/core';
+
+var uuid: any = require('node_modules/node-uuid/uuid.js');
 
 /**
  * Todo entity.
  */
 export class Todo {
-    
+
     /**
      * Key.
      */
     todoId: string;
-    
+
     /**
      * Value.
      */
@@ -20,7 +22,7 @@ export class Todo {
  * Entity class. Defines each entity and its methods.
  */
 @Injectable() export class Entity {
-	
+
     /**
      * Todos entity.
      */
@@ -36,7 +38,7 @@ export class Todo {
         this.todos.push(record);
 
     }
-    
+
     /**
      * Deletes a todo.
      * 
@@ -70,7 +72,7 @@ export class Todo {
         this.todos.splice(0);
 
     }
-    
+
     /**
      * Creates key.
      * 
@@ -82,7 +84,7 @@ export class Todo {
         return uuid.v4();
 
     }
-    
+
     /**
      * Sorts todos by description.
      */
