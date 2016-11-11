@@ -77,7 +77,7 @@ import { ObjectStore } from '../models/object-store'; // ObjectStore class.
      * @param version The version of the database
      * @return An observable of readyState
      */
-    openDBAsync(dbName: string, version: number): Observable<string> {
+    openDBAsync(dbName: string, version: number) {
 
         return new Observable((observer: Observer<string>) => {
             
@@ -141,7 +141,7 @@ import { ObjectStore } from '../models/object-store'; // ObjectStore class.
      * @param storeName The name of the object store
      * @return An observable of record
      */
-    getAllRecordsAsync(storeName: string): Observable<any> {
+    getAllRecordsAsync(storeName: string) {
         
         // Gets the object store.
         var store: IDBObjectStore = this.getObjectStore(storeName, "readonly");
@@ -189,7 +189,7 @@ import { ObjectStore } from '../models/object-store'; // ObjectStore class.
      * @param record The record to add
      * @return An observable of readyState
      */
-    addRecordAsync(storeName: string, record: any): Observable<string> {
+    addRecordAsync(storeName: string, record: any) {
         
         // Gets the object store.
         var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite");
@@ -225,7 +225,7 @@ import { ObjectStore } from '../models/object-store'; // ObjectStore class.
      * @param key The key of the record to delete
      * @return An observable of readyState
      */
-    deleteRecordAsync(storeName: string, key: string): Observable<string> {
+    deleteRecordAsync(storeName: string, key: string) {
 
         // Gets the object store.
         var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite");
@@ -261,7 +261,7 @@ import { ObjectStore } from '../models/object-store'; // ObjectStore class.
      * @param record The record to update
      * @return An observable of readyState
      */
-    editRecordAsync(storeName: string, record: any): Observable<string> {
+    editRecordAsync(storeName: string, record: any) {
 
         // Gets the object store.
         var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite");
@@ -296,7 +296,7 @@ import { ObjectStore } from '../models/object-store'; // ObjectStore class.
      * @param storeName The name of the object store
      * @return An observable of readyState
      */
-    clearObjectStoreAsync(storeName: string): Observable<string> {
+    clearObjectStoreAsync(storeName: string) {
 
         // Gets the object store.
         var store: IDBObjectStore = this.getObjectStore(storeName, "readwrite");

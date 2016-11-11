@@ -19,3 +19,6 @@ npm install
 
 npm start
 ```
+
+## Related projects
+[Ng2IdxDbService](https://github.com/fhdk/ng2-idx-db-service) @fhdk
