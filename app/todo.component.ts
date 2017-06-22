@@ -19,6 +19,14 @@ export class TodoComponent {
 
         this.description = "";
 
+        this.getTodo();
+
+    }
+
+    getTodo() {
+
+        console.log(this.entity.todos[0]);
+        
     }
 
     // Gets todos.
