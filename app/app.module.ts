@@ -17,7 +17,7 @@ import { TodoComponent } from './todo.component';
     load(): Promise<void> {
 
         // Opens the "Angular2IndexedDB" database. If it doesn't exist, it will be created.
-        let promise: Promise<any> = new Promise((resolve: any) => {
+        var promise: Promise<any> = new Promise((resolve: any) => {
 
             this.indexedDB.openDBAsync("Angular2IndexedDB", 1).forEach(
 
